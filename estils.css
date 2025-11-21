@@ -438,10 +438,6 @@ body {
 @media (min-width: 1136px) {
   .wrapper, .container { padding: 0 24px; }
 
-  .draw .cards__item:nth-child(1),
-  .draw .cards__item:nth-child(2) { width: calc(50% - 12px); }
-  .draw .cards__item:nth-child(2) { margin-left: 24px; }
-
   .draw .cards__item:nth-child(3) {
     display: flex;
     justify-content: space-between;
@@ -513,6 +509,154 @@ img, video {
 @media (min-width: 1200px) {
   .draw__title {
     font-size: 42px;     /* tamaño original en desktop */
+  }
+}
+
+
+.draw .cards__item-title {
+  font-size: 22px;       /* más grande */
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;    /* separación con el texto */
+}
+
+
+.draw .cards__item-description {
+  font-size: 16px;       /* más grande */
+  font-weight: 400;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+/* Limitar tamaño de la segunda imagen (Vector Support) */
+.draw .cards__item:nth-child(2) .cards__item-artwork img {
+  max-width: 180px;     /* ancho máximo */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Layout especial para la sección Draw */
+.draw .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+
+/* Card 3 ocupa todo el ancho, horizontal */
+.draw .cards__item:nth-child(3) {
+  display: flex;
+  flex-direction: row;        /* texto e imagen en fila */
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 100%;             /* ancho completo */
+}
+
+/* Texto alineado a la izquierda en todas las cards */
+.draw .cards__item-info {
+  text-align: left;
+}
+
+
+/* Imagen/video a la derecha en Card 3 */
+.draw .cards__item:nth-child(3) .cards__item-artwork {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.draw .cards__item:nth-child(3) .cards__item-info {
+  flex: 1 1 50%;
+  padding-right: 20px;   /* ✅ corregido */
+}
+    /* Limitar la anchura de la Card 3 */
+.draw .cards__item:nth-child(3) {
+  max-width: 900px;     /* ajusta este valor según el ancho de tu imagen principal */
+  margin: 0 auto;       /* centra la card en la sección */
+  flex: 1 1 auto;       /* evita que se estire al 100% */
+}
+
+/* Card 1 y Card 2 lado a lado debajo de la imagen principal */
+.draw .cards__item:nth-child(1),
+.draw .cards__item:nth-child(2) {
+  flex: 1 1 50%;          /* dos columnas iguales */
+  max-width: 420px;       /* no superan el ancho de la imagen principal ni la Card 3 */
+  aspect-ratio: 1 / 1;    /* proporción cuadrada */
+  margin: 0;              /* elimina márgenes extra */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+}
+
+/* Ajustes para móvil */
+@media (max-width: 767px) {
+  /* Cards en columna */
+  .draw .cards__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Card 2 más pequeña */
+  .draw .cards__item:nth-child(2) .cards__item-artwork img {
+    max-width: 120px;   /* reduce aún más el tamaño en móvil */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Texto más legible en móvil */
+  .draw .cards__item-title {
+    font-size: 20px;    /* un poco más grande pero cómodo en móvil */
+    text-align: left;
+  }
+
+  .draw .cards__item-description {
+    font-size: 15px;
+    text-align: left;
+  }
+}
+/* Ajustes para móvil */
+@media (max-width: 767px) {
+  /* Todas las cards en columna */
+  .draw .cards__item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  /* Card 3 en columna (texto arriba, imagen abajo) */
+  .draw .cards__item:nth-child(3) {
+    flex-direction: column;       /* cambia de fila a columna */
+    align-items: flex-start;      /* alinea a la izquierda */
+    max-width: 100%;              /* ocupa todo el ancho */
+  }
+
+  .draw .cards__item:nth-child(3) .cards__item-info,
+  .draw .cards__item:nth-child(3) .cards__item-artwork {
+    flex: 1 1 auto;
+    width: 100%;                  /* cada bloque ocupa todo el ancho */
+    text-align: left;             /* texto alineado a la izquierda */
+    justify-content: center;      /* centra la imagen */
+  }
+
+  /* Imagen más pequeña en móvil */
+  .draw .cards__item-artwork img,
+  .draw .cards__item-artwork video {
+    max-width: 70%;               /* reduce tamaño */
+    margin: 12px auto 0;
+  }
+}
+/* Ajustar tamaño de la imagen de la Card 2 */
+.draw .cards__item:nth-child(2) .cards__item-artwork img {
+  width: 100px;       /* fuerza un ancho fijo más pequeño */
+  height: auto;       /* mantiene proporción */
+  margin: 0 auto;     /* centra la imagen */
+  display: block;
+}
+@media (max-width: 767px) {
+  .draw .cards__item:nth-child(2) .cards__item-artwork img {
+    width: 80px;   /* más pequeño en pantallas pequeñas */
   }
 }
 
