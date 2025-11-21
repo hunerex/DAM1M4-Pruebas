@@ -1,4 +1,4 @@
-/* ========== Variables y base ========== */
+/* ========== 1) Variables y base (colores, tipografía, radios, sombras) ========== */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -20,222 +20,110 @@
   --shadow-md: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-/* ========== Reset y tipografía ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ========== 2) Reset global y tipografía base ========== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+html, body { width: 100%; overflow-x: hidden; } /* evita scroll horizontal */
 
 body {
   font-family: var(--font-base);
   background: var(--white);
   color: var(--black);
   text-align: center;
-  overflow-x: hidden;
 }
 
-/* ========== Layouts utilitarios ========== */
-.wrapper {
+/* Asegura que imágenes y videos nunca se desborden */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ========== 3) Layouts utilitarios (wrapper, container) ========== */
+.wrapper, .container {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 16px;
+  box-sizing: border-box;
 }
 
-.container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-/* ========== Topbar ========== */
+/* ========== 4) Componentes globales (Topbar, Hero, Intro, Botón CTA) ========== */
+/* Topbar */
 .topbar {
-  position: relative;   /* ✅ reemplaza sticky por relative */
+  position: relative; /* antes sticky */
   z-index: 1000;
-
   width: 100%;
   padding: 12px 24px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  display: flex; justify-content: space-between; align-items: center;
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo img {
-  width: 24px;
-  height: 24px;
-  border-radius: 6px;
-}
-
-.logo-text {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1;
-}
-
+.logo { display: flex; align-items: center; gap: 8px; }
+.logo img { width: 24px; height: 24px; border-radius: 6px; }
+.logo-text { font-size: 18px; font-weight: 600; line-height: 1; }
 .nav-right a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 400;
-  transition: color 0.25s ease;
+  margin-left: 18px; text-decoration: none; color: #333; font-weight: 400; transition: color 0.25s ease;
 }
-
 .nav-right a:hover { color: #000; }
-
 .nav-right a.buy {
-  background: var(--accent-pink);
-  color: var(--white);
-  padding: 6px 16px;
-  border-radius: var(--radius-md);
-  font-weight: 500;
+  background: var(--accent-pink); color: var(--white);
+  padding: 6px 16px; border-radius: var(--radius-md); font-weight: 500;
 }
 
 /* Hero */
-.hero {
-  padding: 32px 0 16px;
-}
+.hero { padding: 32px 0 16px; }
 .hero h1 {
-  max-width: 90%; /* mejor ajuste en móvil */
-  margin: 0 auto;
-  font-size: 28px; /* más legible en pantallas pequeñas */
-  line-height: 1.3;
-}
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 42px; /* tamaño original en tablet/desktop */
-  }
+  max-width: 90%; margin: 0 auto;
+  font-size: 28px; line-height: 1.3; /* cambia aquí para tamaño base móvil */
 }
 .hero-image img {
-  width: 100%;
-  max-width: 900px;
-  margin: 24px auto; /* menos margen en móvil */
-  display: block;
-  border-radius: 12px;
+  width: 100%; max-width: 900px;
+  margin: 24px auto; display: block; border-radius: 12px;
 }
 
 /* Intro */
 .intro {
-  max-width: 680px;
-  margin: 20px auto 32px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #444;
-  padding: 0 12px; /* evita que el texto toque los bordes en móvil */
+  max-width: 680px; margin: 20px auto 40px;
+  font-size: 17px; line-height: 1.6; color: var(--gray-700);
+  padding: 0 12px; /* evita que toque bordes en móvil */
 }
 .btn-cta {
-  margin-top: 20px;
-  font-size: 16px;
-  padding: 12px 24px;
-}
-
-
-/* ========== Intro y CTA ========== */
-.intro {
-  max-width: 680px;
-  margin: 20px auto 40px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--gray-700);
-}
-
-.btn-cta {
-  background: var(--accent-pink);
-  color: var(--white);
-  padding: 12px 22px;
-  font-size: 16px;
-  border-radius: 24px;
-  text-decoration: none;
-  margin-top: 20px;
-  display: inline-block;
+  background: var(--accent-pink); color: var(--white);
+  padding: 12px 22px; font-size: 16px; border-radius: 24px;
+  text-decoration: none; margin-top: 20px; display: inline-block;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
+.btn-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
-/* ========== Artwork y videos ========== */
-.artwork {
-  width: 100%;
-  max-width: 1280px;
-  margin: 44px auto 8px;
-}
-
+/* ========== 5) Artwork y videos ========== */
+.artwork { width: 100%; max-width: 1280px; margin: 44px auto 8px; }
 .video-player {
-  overflow: hidden;
-  display: block;
-  width: 100%;
-  max-width: 816px;
-  margin: 44px auto 0;
+  overflow: hidden; display: block;
+  width: 100%; max-width: 816px; margin: 44px auto 0;
   border-radius: var(--radius-lg);
 }
-.video-player__image {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-}
+.video-player__image { width: 100%; height: auto; border-radius: var(--radius-lg); }
 
-/* ========== Componente Cards (base) ========== */
+/* ========== 6) Componente Cards (base + variantes) ========== */
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 980px;
-  margin: 32px auto;
+  display: flex; flex-direction: column; gap: 20px;
+  max-width: 980px; margin: 32px auto;
 }
-
 .cards__item {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius-lg); overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 20px; transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .cards__item:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
 
 .cards__item-artwork img,
 .cards__item-artwork video {
-  width: 100%;
-  max-width: 460px;
-  height: auto;
-  border-radius: var(--radius-sm);
-  display: block;
-  margin: 12px auto 0;
+  width: 100%; max-width: 460px; height: auto;
+  border-radius: var(--radius-sm); display: block; margin: 12px auto 0;
 }
+.cards__item-info { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.cards__item-title { font-size: 18px; font-weight: 700; } /* cambia aquí subtítulos globales */
+.cards__item-description { font-size: 15px; line-height: 1.6; color: #555; } /* cambia aquí cuerpo de texto */
 
-.cards__item-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.cards__item-title { font-size: 18px; font-weight: 700; }
-.cards__item-description {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Modificadores de cards por contexto */
+/* Variantes de estilo de cards */
 .cards--dark .cards__item { background-color: var(--gray-900); }
 .cards--dark .cards__item-title { color: var(--white); }
 .cards--dark .cards__item-description { color: #ccc; }
@@ -244,159 +132,351 @@ body {
 .cards--light .cards__item-title { color: var(--black); }
 .cards--light .cards__item-description { color: #333; }
 
-/* ========== Secciones temáticas ========== */
+/* ========== 7) Secciones temáticas ========== */
+/* Tools */
 .tools {
-  padding: 120px 0 140px;
-  background-color: var(--black);
-  color: var(--white);
+  padding: 120px 0 140px; background-color: var(--black); color: var(--white);
 }
 .tools__header { text-align: center; }
-.tools__title, .tools__description {
+
+/* Título y descripción de la sección Tools */
+/* Título y descripción de la sección Tools */
+.tools__title {
   max-width: 680px;
-  margin: 0 auto;
+  margin: 0 auto;       /* 👉 mantiene el bloque centrado */
+  text-align: center;   /* 👉 centra el texto dentro del bloque */
+  font-size: 36px;      /* 👉 ajusta aquí el tamaño del título */
+  font-weight: 700;
 }
+
 .tools__description {
-  margin-top: 18px;
-  letter-spacing: -0.001em;
+  max-width: 680px;
+  margin: 18px auto 0;  /* 👉 mantiene el párrafo centrado */
+  text-align: center;   /* 👉 centra el texto dentro del bloque */
+  font-size: 18px;      /* 👉 ajusta aquí el tamaño del texto */
+  line-height: 1.6;
   opacity: 0.85;
 }
-.tools__more {
-  margin-top: 64px;
-  color: var(--accent-blue);
-  font-weight: 500;
-  text-align: center;
-  transition: color 130ms ease-in-out;
-}
+
+.tools__description { margin-top: 18px; letter-spacing: -0.001em; opacity: 0.85; }
+.tools__more { margin-top: 64px; color: var(--accent-blue); font-weight: 500; text-align: center; transition: color 130ms ease-in-out; }
 .tools__more-link { display: inline-flex; align-items: center; gap: 10px; }
 .tools__more svg path { fill: currentColor; }
 
-.draw {
-  padding: 120px 0 140px;
-  background-color: var(--black);
-  color: var(--white);
-}
-.draw__header { text-align: center; }
-.draw__title, .draw__description {
-  max-width: 724px;
-  margin: 0 auto;
-}
-.draw__description { margin-top: 18px; opacity: 0.85; }
-
-/* Ajustes específicos de draw (layout mixto en desktop) */
-.draw .cards { max-width: 1200px; }
-.draw .cards__item { background-color: #111; }
-
-/* Lista de herramientas (tools) */
+/* Tools: lista de herramientas */
 .tools__list {
   max-width: 798px;
   margin: 24px auto 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  display: flex; flex-wrap: wrap; gap: 16px;
   list-style: none;
 }
-.tools__item {
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-}
+.tools__item { box-sizing: border-box; width: 100%; text-align: left; }
 .tools__item:nth-child(odd) { padding-right: 0; }
 .icono { width: 50px; height: auto; flex-shrink: 0; }
 
-/* Design */
-.design .cards { max-width: 1200px; }
-.design .cards__item { background-color: var(--gray-200); }
-.design .cards__item:nth-child(1) {
-  overflow: hidden;
-  display: flex;
-  justify-content: space-between;
-  padding-top: 24px;
+/* Draw */
+.draw {
+  padding: 120px 0 140px; background-color: var(--black); color: var(--white);
 }
-.design .cards__item:nth-child(2) {
-  overflow: hidden;
+.draw__header { text-align: center; padding: 0 12px; }
+.draw__title {
+  font-size: 26px; line-height: 1.3; font-weight: 700; margin-bottom: 16px; /* cambia aquí el título de sección */
+}
+.draw__description {
+  font-size: 16px; line-height: 1.6; color: #ddd; max-width: 680px; margin: 0 auto 24px;
+}
+
+/* Draw: cards dentro de la sección */
+.draw .cards { display: flex; flex-wrap: wrap; gap: 24px; max-width: 1200px; }
+.draw .cards__item { background-color: #111; }
+
+/* Tipografías específicas dentro de Draw */
+.draw .cards__item-title {
+  font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; /* subtítulos más grandes en Draw */
+}
+.draw .cards__item-description {
+  font-size: 16px; font-weight: 400; line-height: 1.6; color: #ccc; /* cuerpo más grande en Draw */
+}
+
+/* Draw: imagen de Card 2 más pequeña (PNG @2x) */
+.draw .cards__item:nth-child(2) .cards__item-artwork img {
+  width: 100px; height: auto; margin: 0 auto; display: block; /* fuerza ancho fijo */
+}
+/* Draw: Card 3 layout horizontal en desktop */
+.draw .cards__item:nth-child(3) {
+  display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+  flex: 1 1 100%; max-width: 900px; margin: 0 auto; flex: 1 1 auto;
+}
+.draw .cards__item:nth-child(3) .cards__item-artwork {
+  flex: 1 1 50%; display: flex; justify-content: flex-end;
+}
+.draw .cards__item:nth-child(3) .cards__item-info {
+  flex: 1 1 50%; padding-right: 20px;
+}
+
+/* Draw: Cards 1 y 2 lado a lado controladas */
+.draw .cards__item:nth-child(1),
+.draw .cards__item:nth-child(2) {
+  flex: 1 1 50%; max-width: 420px;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  text-align: right; /* si quieres todo a la izquierda, cambia a left */
+}
+
+/* Design */
+/* ===== Sección Design: título y descripción ===== */
+.design__title {
+  max-width: 680px;
+  margin: 60px auto 20px;   /* 👉 añade espacio arriba (60px) y abajo (20px) */
+  text-align: center;       /* 👉 centra el título */
+  font-size: 40px;          /* 👉 más grande que antes */
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.design__description {
+  max-width: 680px;
+  margin: 0 auto 40px;      /* 👉 centrado, con espacio debajo */
+  text-align: center;       /* 👉 centra el texto */
+  font-size: 20px;          /* 👉 más grande y legible */
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+/* m1: Layer-Based Editing */
+.design .cards__item:nth-child(1) {
+  display: flex;
+  flex-direction: row;       /* 👉 texto e imagen en fila */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;          /* 👉 no sobrepasa la imagen principal */
+  margin: 0 auto 40px;       /* 👉 centrado con espacio debajo */
+  padding: 20px;
+  background-color: var(--gray-200);
+  border-radius: var(--radius-lg);
+}
+/* ===== Menucitos de la sección Design ===== */
+.design .cards {
+  display: flex;
+  flex-direction: column; /* 👉 primero apila en columna */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 32px auto;
+}
+/* ===== M1: Layer-Based Editing ===== */
+.design .cards__item:nth-child(1) {
+  display: flex;
+  flex-direction: row;       /* 👉 texto a la izquierda, imagen a la derecha */
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;          /* 👉 no sobrepasa la imagen principal */
+  margin: 0 auto 40px;       /* 👉 centrado con espacio debajo */
+  padding: 20px;
+  background-color: var(--gray-200);
+  border-radius: var(--radius-lg);
+}
+
+/* ===== M1: versión móvil ===== */
+@media (max-width: 767px) {
+  .design .cards__item:nth-child(1) {
+    flex-direction: column;   /* 👉 apila texto e imagen */
+    max-width: 100%;          /* 👉 ocupa todo el ancho disponible */
+    padding: 16px;
+  }
+
+  .design .cards__item:nth-child(1) .cards__item-info {
+    flex: 1 1 auto;
+    text-align: center;       /* 👉 texto centrado en móvil */
+    margin-bottom: 20px;      /* 👉 espacio debajo del texto */
+  }
+
+  .design .cards__item:nth-child(1) .cards__item-artwork {
+    flex: 1 1 auto;
+    justify-content: center;  /* 👉 imagen centrada */
+  }
+
+  .design .cards__item:nth-child(1) .cards__item-artwork img {
+    max-width: 100%;          /* 👉 imagen ocupa ancho completo */
+    height: auto;
+  }
+}
+
+.design .cards__item:nth-child(3) {
   position: relative;
-  background-color: #2f434b;
+  width: 228px;
+  height: 88px;
+  margin: 0 auto 40px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Imagen ocupa todo el bloque */
+.design .cards__item:nth-child(3) .cards__item-artwork {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.design .cards__item:nth-child(3) .cards__item-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+
+
+/* ===== M2: Smart Guides ===== */
+.design .cards__item:nth-child(2) {
+  position: relative;
+  width: 456px;
+  height: 442px;
+  margin: 0 auto 40px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: #2f434b; /* fondo oscuro por si la imagen no carga */
+}
+
+/* Imagen ocupa todo el bloque */
+.design .cards__item:nth-child(2) .cards__item-artwork {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.design .cards__item:nth-child(2) .cards__item-artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-lg);
+}
+
+/* Texto superpuesto arriba izquierda */
+.design .cards__item:nth-child(2) .cards__item-info {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
   color: var(--white);
+  font-family: var(--font-main);
+  pointer-events: none;
+}
+
+.design .cards__item:nth-child(2) .cards__item-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.design .cards__item:nth-child(2) .cards__item-description {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.95;
+}
+
+
+
+
+
+
+
+
+
+/* Bloque de texto a la izquierda */
+.design .cards__item:nth-child(1) .cards__item-info {
+  flex: 1 1 50%;
+  text-align: left;          /* 👉 texto alineado a la izquierda */
+}
+
+.design .cards__item:nth-child(1) .cards__item-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.design .cards__item:nth-child(1) .cards__item-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Imagen a la derecha */
+.design .cards__item:nth-child(1) .cards__item-artwork {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end; /* 👉 imagen a la derecha */
+}
+
+.design .cards__item:nth-child(1) .cards__item-artwork img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+}
+
+
+
+
+/* Imagen dentro de la sección Design */
+/* Imagen principal de la sección Design */
+.design__artwork img {
+  max-width: 900px;   /* 👉 limita el ancho máximo de la imagen */
+  height: auto;       /* 👉 mantiene proporción */
+  margin: 40px auto;  /* 👉 añade espacio arriba y abajo para que no quede pegada */
+  display: block;     /* 👉 asegura que se centre */
+  border-radius: 12px; /* 👉 opcional: esquinas redondeadas */
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 767px) {
+  .design__artwork img {
+    max-width: 100%;   /* 👉 ocupa todo el ancho disponible en móvil */
+    margin: 24px auto; /* 👉 menos margen en móvil */
+  }
 }
 
 /* Workspace */
 .workspace {
-  padding: 120px 0 140px;
-  background-color: var(--black);
-  color: var(--white);
+  padding: 120px 0 140px; background-color: var(--black); color: var(--white);
 }
 .workspace__showcase-image { display: none; }
 .workspace__showcase-image.is-active { display: block; }
-.workspace__showcase-link.is-active {
-  font-weight: 700;
-  color: #007aff;
-  text-decoration: underline;
-}
+.workspace__showcase-link.is-active { font-weight: 700; color: #007aff; text-decoration: underline; }
 
 /* Showcase select (tabs con imágenes) */
-.select__showcase {
-  width: 100%;
-  max-width: 1280px;
-  margin: 44px auto 0;
-}
-.select__showcase-artwork {
-  position: relative;
-  width: 100%;
-  padding-top: 60.07%;
-}
+.select__showcase { width: 100%; max-width: 1280px; margin: 44px auto 0; }
+.select__showcase-artwork { position: relative; width: 100%; padding-top: 60.07%; }
 .select__showcase-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 160ms ease-in-out;
+  position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 160ms ease-in-out;
 }
 .select__showcase-image.is-active { opacity: 1; }
-.select__showcase-image source,
-.select__showcase-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.select__showcase-image source, .select__showcase-image img { width: 100%; height: 100%; object-fit: cover; }
 
 .select__showcase-link {
-  position: relative;
-  z-index: 2;
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(51, 51, 51, 0.77);
-  line-height: 1.14;
-  letter-spacing: 0.027em;
-  border: 2px solid transparent;
-  border-radius: 20px;
+  position: relative; z-index: 2; padding: 8px 14px; font-size: 14px; font-weight: 500;
+  color: rgba(51, 51, 51, 0.77); line-height: 1.14; letter-spacing: 0.027em;
+  border: 2px solid transparent; border-radius: 20px;
   transition: opacity 130ms ease-in-out, border-color 130ms ease-in-out, color 130ms ease-in-out;
 }
 .select__showcase-nav-wrapper { position: relative; display: inline-flex; gap: 8px; }
 .select__showcase-nav-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  border: 2px solid rgba(51, 51, 51, 0.33);
-  border-radius: 20px;
+  content: ""; position: absolute; inset: 0; z-index: 0;
+  border: 2px solid rgba(51, 51, 51, 0.33); border-radius: 20px;
 }
 
 /* ML cards */
 .ml .cards { max-width: 1200px; }
-.ml .cards__item {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+.ml .cards__item { background-color: rgba(0, 0, 0, 0.05); }
 
 /* Effects */
 .effects__columns {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start;
+  max-width: 1200px; margin: 0 auto;
 }
 .effects__artwork img { width: 100%; border-radius: var(--radius-lg); }
 .effects__info.cards { margin: 0; }
@@ -404,27 +484,22 @@ body {
 /* Footer buy + global footer */
 .buy { padding: 64px 0; background: var(--gray-100); }
 .buy__btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: var(--accent-blue);
-  color: var(--white);
-  text-decoration: none;
+  display: inline-block; margin-top: 12px; padding: 10px 18px; border-radius: 999px;
+  background: var(--accent-blue); color: var(--white); text-decoration: none;
 }
 
-/* ========== Responsive ========== */
+/* ========== 8) Tipografías específicas por contexto (utilidades) ========== */
+/* Alineación del texto dentro de las cards en Draw */
+.draw .cards__item-info { text-align: left; } /* cambia aquí para alinear a la izquierda */
+
+/* ========== 9) Responsive: Tablet, Desktop, Ultra-wide ========== */
 /* Tablet */
 @media (min-width: 768px) {
   .topbar { padding: 14px 32px; }
-  .hero h1 { font-size: 42px; }
+  .hero h1 { font-size: 42px; } /* título hero en tablet */
 
   .cards {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-    max-width: 1100px;
+    flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 1100px;
   }
   .cards__item { flex: 1 1 280px; }
 
@@ -438,225 +513,41 @@ body {
 @media (min-width: 1136px) {
   .wrapper, .container { padding: 0 24px; }
 
-  .draw .cards__item:nth-child(3) {
-    display: flex;
-    justify-content: space-between;
-  }
+  /* Draw: Card 3 layout desktop específico */
+  .draw .cards__item:nth-child(3) { display: flex; justify-content: space-between; }
   .draw .cards__item:nth-child(3) .cards__item-info { max-width: calc(50% - 12px); }
-  .draw .cards__item:nth-child(3) .cards__item-artwork {
-    display: flex; align-items: flex-end; justify-content: flex-end;
-  }
+  .draw .cards__item:nth-child(3) .cards__item-artwork { display: flex; align-items: flex-end; justify-content: flex-end; }
 }
 
 /* Ultra-wide desktop */
 @media (min-width: 1280px) {
-  .hero h1 { font-size: 48px; }
+  .hero h1 { font-size: 48px; } /* título hero en ultra-wide */
 }
 
-/* Evita scroll horizontal */
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Asegura que imágenes y videos nunca se desborden */
-img, video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Contenedores seguros */
-.wrapper, .container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-/* Sección Draw */
-.draw__header {
-  text-align: center;
-  padding: 0 12px; /* evita que el texto toque los bordes en móvil */
-}
-
-.draw__title {
-  font-size: 26px;       /* tamaño cómodo en móvil */
-  line-height: 1.3;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-
-.draw__description {
-  font-size: 16px;       /* más pequeño para lectura fluida */
-  line-height: 1.6;
-  color: #ddd;           /* contraste suave sobre fondo negro */
-  max-width: 680px;
-  margin: 0 auto 24px;
-}
-
-/* Ajustes para tablet y escritorio */
-@media (min-width: 768px) {
-  .draw__title {
-    font-size: 34px;     /* más grande en pantallas medianas */
-  }
-  .draw__description {
-    font-size: 17px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .draw__title {
-    font-size: 42px;     /* tamaño original en desktop */
-  }
-}
-
-
-.draw .cards__item-title {
-  font-size: 22px;       /* más grande */
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 8px;    /* separación con el texto */
-}
-
-
-.draw .cards__item-description {
-  font-size: 16px;       /* más grande */
-  font-weight: 400;
-  line-height: 1.6;
-  color: #ccc;
-}
-
-/* Limitar tamaño de la segunda imagen (Vector Support) */
-.draw .cards__item:nth-child(2) .cards__item-artwork img {
-  max-width: 180px;     /* ancho máximo */
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
-
-/* Layout especial para la sección Draw */
-.draw .cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-
-/* Card 3 ocupa todo el ancho, horizontal */
-.draw .cards__item:nth-child(3) {
-  display: flex;
-  flex-direction: row;        /* texto e imagen en fila */
-  justify-content: space-between;
-  align-items: center;
-  flex: 1 1 100%;             /* ancho completo */
-}
-
-/* Texto alineado a la izquierda en todas las cards */
-.draw .cards__item-info {
-  text-align: left;
-}
-
-
-/* Imagen/video a la derecha en Card 3 */
-.draw .cards__item:nth-child(3) .cards__item-artwork {
-  flex: 1 1 50%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.draw .cards__item:nth-child(3) .cards__item-info {
-  flex: 1 1 50%;
-  padding-right: 20px;   /* ✅ corregido */
-}
-    /* Limitar la anchura de la Card 3 */
-.draw .cards__item:nth-child(3) {
-  max-width: 900px;     /* ajusta este valor según el ancho de tu imagen principal */
-  margin: 0 auto;       /* centra la card en la sección */
-  flex: 1 1 auto;       /* evita que se estire al 100% */
-}
-
-/* Card 1 y Card 2 lado a lado debajo de la imagen principal */
-.draw .cards__item:nth-child(1),
-.draw .cards__item:nth-child(2) {
-  flex: 1 1 50%;          /* dos columnas iguales */
-  max-width: 420px;       /* no superan el ancho de la imagen principal ni la Card 3 */
-  aspect-ratio: 1 / 1;    /* proporción cuadrada */
-  margin: 0;              /* elimina márgenes extra */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: right;
-}
-
-/* Ajustes para móvil */
+/* ========== 10) Responsive móvil específico (<= 767px) ========== */
 @media (max-width: 767px) {
-  /* Cards en columna */
-  .draw .cards__item {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+  /* Draw: todas las cards en columna y a ancho completo */
+  .draw .cards__item { flex: 1 1 100%; max-width: 100%; }
 
-  /* Card 2 más pequeña */
-  .draw .cards__item:nth-child(2) .cards__item-artwork img {
-    max-width: 120px;   /* reduce aún más el tamaño en móvil */
-    height: auto;
-    margin: 0 auto;
-    display: block;
-  }
+  /* Draw: Card 2 más pequeña en móvil */
+  .draw .cards__item:nth-child(2) .cards__item-artwork img { width: 80px; }
 
-  /* Texto más legible en móvil */
-  .draw .cards__item-title {
-    font-size: 20px;    /* un poco más grande pero cómodo en móvil */
-    text-align: left;
-  }
-
-  .draw .cards__item-description {
-    font-size: 15px;
-    text-align: left;
-  }
-}
-/* Ajustes para móvil */
-@media (max-width: 767px) {
-  /* Todas las cards en columna */
-  .draw .cards__item {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  /* Card 3 en columna (texto arriba, imagen abajo) */
+  /* Draw: Card 3 en columna (texto arriba, imagen abajo) */
   .draw .cards__item:nth-child(3) {
-    flex-direction: column;       /* cambia de fila a columna */
-    align-items: flex-start;      /* alinea a la izquierda */
-    max-width: 100%;              /* ocupa todo el ancho */
+    flex-direction: column; align-items: flex-start; max-width: 100%;
   }
-
   .draw .cards__item:nth-child(3) .cards__item-info,
   .draw .cards__item:nth-child(3) .cards__item-artwork {
-    flex: 1 1 auto;
-    width: 100%;                  /* cada bloque ocupa todo el ancho */
-    text-align: left;             /* texto alineado a la izquierda */
-    justify-content: center;      /* centra la imagen */
+    flex: 1 1 auto; width: 100%; text-align: left; justify-content: center;
   }
 
-  /* Imagen más pequeña en móvil */
+  /* Draw: imágenes y videos más pequeños en móvil (todas las cards) */
   .draw .cards__item-artwork img,
   .draw .cards__item-artwork video {
-    max-width: 70%;               /* reduce tamaño */
-    margin: 12px auto 0;
+    max-width: 70%; margin: 12px auto 0;
   }
-}
-/* Ajustar tamaño de la imagen de la Card 2 */
-.draw .cards__item:nth-child(2) .cards__item-artwork img {
-  width: 100px;       /* fuerza un ancho fijo más pequeño */
-  height: auto;       /* mantiene proporción */
-  margin: 0 auto;     /* centra la imagen */
-  display: block;
-}
-@media (max-width: 767px) {
-  .draw .cards__item:nth-child(2) .cards__item-artwork img {
-    width: 80px;   /* más pequeño en pantallas pequeñas */
-  }
-}
 
+  /* Tipografías en móvil (cómodas) */
+  .draw .cards__item-title { font-size: 20px; text-align: left; }
+  .draw .cards__item-description { font-size: 15px; text-align: left; }
+}
