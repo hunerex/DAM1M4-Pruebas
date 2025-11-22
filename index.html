@@ -273,6 +273,20 @@
       </div>
     </div>
   </section>
+  <script>
+  document.querySelectorAll('.workspace__showcase-link').forEach((tab, index) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.workspace__showcase-link').forEach(t => t.classList.remove('is-active'));
+      document.querySelectorAll('.workspace__showcase-image').forEach(img => img.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      document.querySelectorAll('.workspace__showcase-image')[index].classList.add('is-active');
+    });
+  });
+</script>
+
+
+  
 
   <section class="pro__remove-bg remove-bg">
     <div class="design__wrapper wrapper">

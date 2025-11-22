@@ -434,58 +434,321 @@ img, video { max-width: 100%; height: auto; display: block; }
   .templatesHero__image { width: 100%; height: auto; }
 }
 
+
 /* ========== 9) Workspace (showcase con tabs) ========== */
+
+/* Sección principal del workspace */
 .workspace {
-  padding: 120px 0 140px; background-color: var(--black); color: var(--white);
+  background-color: var(--black); /* Fondo negro para destacar el contenido */
+  color: var(--white);            /* Texto blanco para contraste */
+  padding: 120px 20px;            /* Espaciado interno generoso arriba y a los lados */
+  text-align: center;             /* Centra todo el contenido horizontalmente */
 }
-.workspace__showcase-image { display: none; }
-.workspace__showcase-image.is-active { display: block; }
-.workspace__showcase-link.is-active { font-weight: 700; color: #007aff; text-decoration: underline; }
 
-.workspace__showcase { width: 100%; max-width: 1280px; margin: 44px auto 0; }
-.workspace__showcase-artwork { position: relative; width: 100%; padding-top: 60.07%; }
+/* Título principal del workspace */
+.workspace__title {
+  font-size: 36px;                /* Tamaño grande para destacar */
+  font-weight: 700;              /* Negrita fuerte */
+  line-height: 1.3;              /* Espaciado vertical cómodo */
+  margin-bottom: 20px;           /* Separación con el párrafo siguiente */
+}
+
+/* Descripción debajo del título */
+.workspace__description {
+  font-size: 18px;               /* Tamaño medio para lectura cómoda */
+  line-height: 1.6;              /* Espaciado entre líneas */
+  max-width: 680px;              /* Limita el ancho para mejor legibilidad */
+  margin: 0 auto 40px;           /* Centrado horizontal y espacio inferior */
+  opacity: 0.85;                 /* Ligera transparencia para suavizar el texto */
+}
+
+/* Contenedor de las imágenes del showcase */
+.workspace__showcase-artwork {
+  position: relative;            /* Necesario para posicionar las imágenes absolutas dentro */
+  width: 100%;                   /* Ocupa todo el ancho disponible */
+  max-width: 960px;              /* Limita el ancho para que no se vea demasiado grande */
+  margin: 0 auto;                /* Centrado horizontal */
+  padding-top: 56.25%;           /* Proporción 16:9 basada en el ancho */
+  margin-bottom: 12px;           /* Espacio entre imagen y los tabs */
+}
+
+/* Imágenes del showcase (ocultas por defecto) */
 .workspace__showcase-image {
-  position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 160ms ease-in-out;
+  position: absolute;            /* Se posicionan encima del contenedor */
+  inset: 0;                      /* Ocupan todo el espacio disponible */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* Escala la imagen sin deformarla */
+  opacity: 0;                    /* Ocultas por defecto */
+  transition: opacity 160ms ease-in-out; /* Transición suave al mostrar */
 }
-.workspace__showcase-image.is-active { opacity: 1; }
-.workspace__showcase-image source,
-.workspace__showcase-image img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Imagen activa (visible) */
+.workspace__showcase-image.is-active {
+  opacity: 1;                    /* Solo la imagen activa se muestra */
+}
+
+/* Contenedor de los tabs de navegación */
+.workspace__showcase-nav-wrapper {
+  display: inline-flex;          /* Tabs en línea y flexibles */
+  justify-content: center;       /* Centrado horizontal */
+  align-items: center;           /* Alineación vertical centrada */
+  gap: 0;                        /* Sin espacio entre tabs */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Contorno general tenue */
+  border-radius: 999px;          /* Bordes redondeados estilo píldora */
+  overflow: hidden;              /* Oculta cualquier desbordamiento */
+  margin: 0 auto;                /* Centrado sin margen superior */
+}
+
+/* Estilo base de cada tab */
 .workspace__showcase-link {
-  position: relative; z-index: 2; padding: 8px 14px; font-size: 14px; font-weight: 500;
-  color: rgba(51, 51, 51, 0.77); line-height: 1.14; letter-spacing: 0.027em;
-  border: 2px solid transparent; border-radius: 20px;
-  transition: opacity 130ms ease-in-out, border-color 130ms ease-in-out, color 130ms ease-in-out;
-}
-.workspace__showcase-nav-wrapper { position: relative; display: inline-flex; gap: 8px; }
-.workspace__showcase-nav-wrapper::after {
-  content: ""; position: absolute; inset: 0; z-index: 0;
-  border: 2px solid rgba(51, 51, 51, 0.33); border-radius: 20px;
+  padding: 10px 24px;            /* Espaciado interno cómodo */
+  font-size: 15px;               /* Tamaño de texto legible */
+  font-weight: 500;              /* Seminegrita */
+  color: rgba(255, 255, 255, 0.6); /* Color gris claro para inactivos */
+  background: transparent;       /* Fondo transparente por defecto */
+  border: none;                  /* Sin borde externo */
+  border-right: 1px solid rgba(255, 255, 255, 0.2); /* Separador entre tabs */
+  text-decoration: none;         /* Sin subrayado */
+  transition: all 0.2s ease-in-out; /* Transición suave al interactuar */
 }
 
-/* ========== 10) Select (otro showcase con tabs) ========== */
-.select__showcase { width: 100%; max-width: 1280px; margin: 44px auto 0; }
-.select__showcase-artwork { position: relative; width: 100%; padding-top: 60.07%; }
-.select__showcase-image {
-  position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 160ms ease-in-out;
+/* El último tab no tiene borde derecho */
+.workspace__showcase-link:last-child {
+  border-right: none;
 }
-.select__showcase-image.is-active { opacity: 1; }
-.select__showcase-image source, .select__showcase-image img { width: 100%; height: 100%; object-fit: cover; }
 
-.select__showcase-link {
-  position: relative; z-index: 2; padding: 8px 14px; font-size: 14px; font-weight: 500;
-  color: rgba(51, 51, 51, 0.77); line-height: 1.14; letter-spacing: 0.027em;
-  border: 2px solid transparent; border-radius: 20px;
-  transition: opacity 130ms ease-in-out, border-color 130ms ease-in-out, color 130ms ease-in-out;
+/* Hover sobre tab: más brillante */
+.workspace__showcase-link:hover {
+  color: rgba(255, 255, 255, 0.9);
 }
-.select__showcase-nav-wrapper { position: relative; display: inline-flex; gap: 8px; }
-.select__showcase-nav-wrapper::after {
-  content: ""; position: absolute; inset: 0; z-index: 0;
-  border: 2px solid rgba(51, 51, 51, 0.33); border-radius: 20px;
+
+/* Tab activo: fondo sutil y texto blanco */
+.workspace__showcase-link.is-active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
 }
-.showcase__description { max-width: 700px; margin: 20px auto 0; color: #444; }
-.showcase__description-item { display: none; }
-.showcase__description-item.is-active { display: block; }
+
+/* ========== Responsive para móvil ========== */
+@media (max-width: 768px) {
+  /* Contenedor de tabs en móvil: se apilan en dos filas */
+  .workspace__showcase-nav-wrapper {
+    display: flex;
+    flex-direction: row;         /* Se colocan en fila */
+    flex-wrap: wrap;             /* Permite que pasen a la siguiente línea */
+    justify-content: center;
+    gap: 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 16px;            /* Espacio superior en móvil */
+  }
+
+  /* Estilo de cada tab en móvil */
+  .workspace__showcase-link {
+    flex: 1 1 50%;               /* Ocupan la mitad del ancho cada uno */
+    padding: 10px 16px;          /* Espaciado más compacto */
+    font-size: 14px;             /* Texto más pequeño para pantallas pequeñas */
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Quita el borde derecho en los pares (2º y 4º) */
+  .workspace__showcase-link:nth-child(2n) {
+    border-right: none;
+  }
+
+  /* Tab activo en móvil */
+  .workspace__showcase-link.is-active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    font-weight: 600;
+  }
+}
+
+
+
+/* ========== Sección Remove Background ========== */
+
+.remove-bg {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.remove-bg__title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.remove-bg__description {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  opacity: 0.85;
+}
+
+.remove-bg__artwork img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* --- Responsive para móvil --- */
+@media (max-width: 600px) {
+  .remove-bg {
+    padding: 60px 16px; /* ✅ menos padding en móvil */
+  }
+
+  .remove-bg__title {
+    font-size: 26px;     /* ✅ título más pequeño */
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .remove-bg__description {
+    font-size: 15px;     /* ✅ descripción más compacta */
+    line-height: 1.5;
+    margin: 0 auto 30px;
+    max-width: 90%;      /* ✅ ocupa casi todo el ancho */
+  }
+
+  .remove-bg__artwork img {
+    max-width: 100%;     /* ✅ imagen fluida */
+    border-radius: 8px;  /* ✅ esquinas más suaves en móvil */
+  }
+}
+
+/* ========== Sección ML (aprendizaje automático) ========== */
+
+.pro__ml {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.ml__title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 25px;
+}
+
+.ml__description {
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto 70px;
+  opacity: 0.9;
+}
+
+/* --- GRID DE CARDS --- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;                /* espacio entre tarjetas */
+  max-width: 780px;         /* ancho total más compacto */
+  margin: 0 auto;
+  padding: 0 10px;
+  justify-items: center;
+}
+
+/* --- CARD INDIVIDUAL --- */
+.cards__item {
+  background-color: #ffffff;
+  border: 1px solid #eee;   /* borde sutil */
+  border-radius: 12px;
+  padding: 24px 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  width: 100%;
+  max-width: 220px; /* tamaño final más estrecho */
+}
+
+.cards__item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ICONOS --- */
+.cards__item-info img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+/* --- TÍTULO CARD --- */
+.cards__item-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #0d0d0f;
+}
+
+/* --- DESCRIPCIÓN CARD --- */
+.cards__item-description {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #5c5f66;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* --- RESPONSIVE AJUSTE --- */
+@media (max-width: 600px) {
+  .ml__title {
+    font-size: 32px;
+  }
+
+  .ml__description {
+    font-size: 16px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    max-width: 100%;
+  }
+
+  .cards__item {
+    max-width: 100%;
+    padding: 20px 16px;
+  }
+
+  .cards__item-info img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .cards__item-title {
+    font-size: 14px;
+  }
+
+  .cards__item-description {
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
 
 /* ========== 11) ML cards ==========
    (se aprovechan estilos de .cards y se ajusta fondo) */
