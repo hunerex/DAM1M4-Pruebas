@@ -633,8 +633,10 @@ img, video { max-width: 100%; height: auto; display: block; }
   }
 }
 
-/* ========== Sección ML (aprendizaje automático) ========== */
 
+
+
+/* ========== Sección ML (aprendizaje automático) ========== */
 .pro__ml {
   background-color: var(--white);
   color: var(--black);
@@ -657,103 +659,64 @@ img, video { max-width: 100%; height: auto; display: block; }
   opacity: 0.9;
 }
 
-/* --- GRID DE CARDS --- */
-.cards {
+/* --- GRID DE ML CARDS --- */
+.ml-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;                /* espacio entre tarjetas */
-  max-width: 780px;         /* ancho total más compacto */
+  gap: 10px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 0 10px;
   justify-items: center;
+  grid-auto-rows: 1fr;
 }
 
-/* --- CARD INDIVIDUAL --- */
-.cards__item {
-  background-color: #ffffff;
-  border: 1px solid #eee;   /* borde sutil */
+.ml-cards__item {
+  background-color: #fff;
+  border: 1px solid #eee;
   border-radius: 12px;
-  padding: 24px 18px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-
   width: 100%;
-  max-width: 220px; /* tamaño final más estrecho */
+  max-width: 220px;
 }
 
-.cards__item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+.ml-cards__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* --- ICONOS --- */
-.cards__item-info img {
+.ml-cards__item-info img {
   width: 32px;
   height: 32px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* --- TÍTULO CARD --- */
-.cards__item-title {
+.ml-cards__item-title {
   font-size: 15px;
   font-weight: 700;
   margin-bottom: 6px;
   color: #0d0d0f;
 }
 
-/* --- DESCRIPCIÓN CARD --- */
-.cards__item-description {
+.ml-cards__item-description {
   font-size: 13px;
   line-height: 1.4;
   color: #5c5f66;
-  max-width: 280px;
-  margin: 0 auto;
+  margin: 0;
 }
 
-/* --- RESPONSIVE AJUSTE --- */
+/* --- Responsive móvil --- */
 @media (max-width: 600px) {
-  .ml__title {
-    font-size: 32px;
-  }
-
-  .ml__description {
-    font-size: 16px;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
-    max-width: 100%;
-  }
-
-  .cards__item {
-    max-width: 100%;
-    padding: 20px 16px;
-  }
-
-  .cards__item-info img {
-    width: 34px;
-    height: 34px;
-  }
-
-  .cards__item-title {
-    font-size: 14px;
-  }
-
-  .cards__item-description {
-    font-size: 12px;
-  }
+  .ml__title { font-size: 32px; }
+  .ml__description { font-size: 16px; }
+  .ml-cards { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+  .ml-cards__item { max-width: 100%; padding: 18px 14px; }
 }
 
 
 
-
-
-
-
-/* ========== 11) ML cards ==========
-   (se aprovechan estilos de .cards y se ajusta fondo) */
-.ml .cards { max-width: 1200px; }
-.ml .cards__item { background-color: rgba(0, 0, 0, 0.05); }
 
 /* ========== 12) Effects ========== */
 .effects__columns {
