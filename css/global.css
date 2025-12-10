@@ -1,0 +1,244 @@
+/* CSS GLOBAL - Void Breakers: Asteroid Assault */
+/* =========================================== */
+
+/* CSS Reset Mejorado */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables CSS - Tema Oscuro (default) */
+:root {
+    /* Colores principales - Tema Oscuro */
+    --color-primary: #00f3ff;
+    --color-primary-dark: #0099cc;
+    --color-secondary: #ff00ff;
+    --color-secondary-dark: #cc00cc;
+    --color-accent: #00ffaa;
+    --color-danger: #ff3366;
+    --color-warning: #ffcc00;
+    --color-success: #00ff88;
+    
+    /* Fondos */
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #151530;
+    --bg-tertiary: #1a1a3a;
+    --bg-card: rgba(30, 30, 60, 0.8);
+    --bg-card-hover: rgba(40, 40, 80, 0.9);
+    --bg-overlay: rgba(10, 10, 26, 0.9);
+    
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8ff;
+    --text-muted: #8888cc;
+    
+    /* Bordes y efectos */
+    --border-color: rgba(0, 243, 255, 0.3);
+    --border-glow: rgba(0, 243, 255, 0.6);
+    --shadow-color: rgba(0, 243, 255, 0.2);
+    --neon-glow: 0 0 10px var(--color-primary),
+                 0 0 20px var(--color-primary),
+                 0 0 30px var(--color-primary);
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Espaciados */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    /* Bordes redondeados */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 32px;
+    
+    /* Tipografía */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Exo 2', sans-serif;
+    
+    /* Efectos de vidrio */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Tema Claro (activado con checkbox) */
+body.theme-light {
+    --color-primary: #0066cc;
+    --color-primary-dark: #004499;
+    --color-secondary: #9900cc;
+    --color-secondary-dark: #660099;
+    --color-accent: #009966;
+    --color-danger: #cc0033;
+    --color-warning: #cc9900;
+    --color-success: #00cc66;
+    
+    --bg-primary: #f0f2ff;
+    --bg-secondary: #e0e4ff;
+    --bg-tertiary: #d0d6ff;
+    --bg-card: rgba(255, 255, 255, 0.9);
+    --bg-card-hover: rgba(255, 255, 255, 1);
+    --bg-overlay: rgba(240, 242, 255, 0.95);
+    
+    --text-primary: #0a0a1a;
+    --text-secondary: #334466;
+    --text-muted: #667799;
+    
+    --border-color: rgba(0, 102, 204, 0.3);
+    --border-glow: rgba(0, 102, 204, 0.6);
+    --shadow-color: rgba(0, 102, 204, 0.1);
+    --neon-glow: 0 0 5px var(--color-primary);
+    
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.9);
+}
+
+/* Base HTML */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color var(--transition-slow),
+                color var(--transition-slow);
+}
+
+/* Tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    color: var(--color-secondary);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+.p-1 { padding: var(--spacing-xs); }
+.p-2 { padding: var(--spacing-sm); }
+.p-3 { padding: var(--spacing-md); }
+.p-4 { padding: var(--spacing-lg); }
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--radius-md);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* Selection */
+::selection {
+    background-color: var(--color-primary);
+    color: var(--bg-primary);
+}
+
+/* Focus Styles */
+:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Clases para animaciones de entrada */
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease forwards;
+}
+
+/* Responsive Base */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+}

@@ -1,813 +1,290 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixelmator Pro</title>
-  <link rel="stylesheet" href="estils.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void Breakers: Asteroid Assault - Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
 </head>
-<body>
+<body class="theme-dark">
+    <!-- Toggle Dark/Light Mode -->
+    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+    <label for="theme-toggle" class="theme-toggle-label">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+        <span class="theme-toggle-ball"></span>
+    </label>
 
-  <header class="topbar">
-    <div class="logo">
-      <img src="exerciciPixelmator/ico_pixelamtor-pro-2.0@2x.png" alt="Icono Pixelmator Pro" loading="lazy">
-      <span class="logo-text">Pixelmator Pro 3.7</span>
-    </div>
-    <nav class="nav-right">
-      <a href="#">Overview</a>
-      <a href="#">Tech Specs</a>
-      <a href="#">User Guide</a>
-      <a class="buy" href="https://apps.apple.com/us/app/pixelmator-pro/id1289583905?mt=12&ls=1">Buy</a>
-    </nav>
-  </header>
+    <!-- Background Stars -->
+    <div class="stars stars-layer-1"></div>
+    <div class="stars stars-layer-2"></div>
+    <div class="stars stars-layer-3"></div>
 
-  <div class="container">
-    <section class="hero">
-    <h1>Professional image editing tools that anyone can use</h1>
-    <div class="hero-image">
-        <img src="exerciciPixelmator/img_hero@2x.png" 
-            alt="Vista previa de Pixelmator Pro" 
-            loading="lazy">
-    </div>
-    </section> 
-
-    <section class="intro">
-    <p>
-        Pixelmator Pro is an image editor designed to make the most powerful professional image editing tools accessible to everyone...
-    </p>
-    <a class="btn-cta" href="https://apps.apple.com/us/app/pixelmator-pro/id1289583905?mt=12&ls=1">
-        Comprar ahora
-    </a>
-    </section>
-
-    <section class="pro__draw draw">
-      <div class="draw__wrapper wrapper">
-        <header class="draw__header">
-            <h2 class="draw__title type-xl">
-                Draw and illustrate with a full collection of vector tools.
-            </h2>
-            <p class="draw__description type-m">
-                Pixelmator Pro comes with a full set of vector tools for creating resolution-independent designs. 
-                It includes easily-customizable smart shapes, a large collection of pre-designed shapes, and support 
-                for vector file formats including PSD, SVG, PDF, Adobe Illustrator, and Illustrator EPS.
-            </p>
-            </header>
-        <picture class="draw__artwork artwork">
-          <div class="hero-image">
-            <img src="exerciciPixelmator/img_draw@2x.png" alt="Ilustración de herramientas vectoriales de Pixelmator Pro" loading="lazy">
-          </div>
-        </picture>
-        <div class="cards cards--dark">
-          <div class="cards__item">
-            <header class="cards__item-info">
-              <h6 class="cards__item-title type-s">Resolution Independent</h6>
-              <p class="cards__item-description type-xs">Vector shapes are resolution-independent, so curves always look smooth and edges always stay sharp, no matter how much you resize each shape or even entire vector designs.</p>
-            </header>
-            <div class="cards__item-artwork">
-              <img src="exerciciPixelmator/img_draw-resolution-independent@2x.jpg" alt="Ejemplo de vectores independientes de resolución" loading="lazy">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <svg class="logo-svg" width="50" height="50" viewBox="0 0 100 100">
+                        <path class="logo-asteroid" d="M50,20 C60,15 75,18 80,30 C85,42 78,55 70,60 C62,65 50,70 40,65 C30,60 25,45 30,35 C35,25 40,25 50,20 Z"/>
+                        <path class="logo-crack-1" d="M55,35 L65,45"/>
+                        <path class="logo-crack-2" d="M40,50 L50,55"/>
+                        <path class="logo-glow" d="M50,20 C60,15 75,18 80,30 C85,42 78,55 70,60 C62,65 50,70 40,65 C30,60 25,45 30,35 C35,25 40,25 50,20 Z"/>
+                    </svg>
+                    <div class="logo-text">
+                        <h1 class="logo-title">VOID BREAKERS</h1>
+                        <p class="logo-subtitle">Asteroid Assault</p>
+                    </div>
+                </a>
             </div>
-          </div>
-          <div class="cards__item">
-            <header class="cards__item-info">
-              <h6 class="cards__item-title type-s">Vector Support</h6>
-              <p class="cards__item-description type-xs">Pixelmator Pro supports vector file formats, including PSD, SVG, PDF, Adobe Illustrator, and Illustrator EPS, so you can effortlessly edit shapes and paths in these files, and export them while keeping all their vector data.</p>
-            </header>
-            <figure class="cards__item-artwork">
-              <img src="exerciciPixelmator/ico_vector-support@2x.png" alt="Icono de soporte vectorial" loading="lazy">
-            </figure>
-          </div>
-          <div class="cards__item">
-            <header class="cards__item-info">
-              <h6 class="cards__item-title type-s">Smart Shapes</h6>
-              <p class="cards__item-description type-xs">With a collection of pre-made Smart Shapes, you can quickly add star and various polygon shapes, arrows, speech bubbles, and other shapes to your compositions, then customize them in any way you want.</p>
-            </header>
-            <figure class="cards__item-artwork">
-              <video width="460" height="342" autoplay muted playsinline loop>
-                <source src="/exerciciPixelmator/video_smart-shapes.mp4" type="video/mp4">
-              </video>
-            </figure>
-          </div>
+
+            <!-- Hamburger Menu for Mobile -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+            <label for="menu-toggle" class="menu-toggle-label">
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+            </label>
+
+            <!-- Navigation -->
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li class="nav-item"><a href="instructions.html" class="nav-link"><i class="fas fa-book"></i> Instrucciones</a></li>
+                    <li class="nav-item"><a href="history.html" class="nav-link"><i class="fas fa-history"></i> Historia</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link"><i class="fas fa-users"></i> About Us</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-    </section>
-
-  </div>
-  <section class="draw">
-    <div class="tools__wrapper wrapper">
-      <header class="tools__header">
-        <h2 class="tools__title type-xl">Powerful tools for perfecting your photos.</h2>
-        <p class="tools__description type-m">The collection of powerful, nondestructive color adjustments in Pixelmator Pro lets you edit the colors in your photos, or even videos, in any way you want. And with full support for RAW photos, a collection of stunning adjustment presets, and incredible retouching tools, it couldn’t be easier to turn good-looking photos spectacular.</p>
-      </header>
-      <picture class="hero-image">
-        <img src="/exerciciPixelmator/img_tools--v1@2x.png" alt="Herramientas de ajuste de color" loading="lazy">
-      </picture>
-      <ul class="tools__list">
-        <li class="tools__item">
-          <img src="/exerciciPixelmator/ico_color-adjustments@2x.png" class="icono" alt="Icono ajustes de color" loading="lazy">
-          <h4 class="tools__item-title type-m is-bold">Edit the colors in your photos in any way you want.</h4>
-          <p class="tools__item-description type-m">In Pixelmator Pro, you’ll find everything from essential color adjustments like brightness, contrast, and exposure to advanced tools like multi-channel curves and wheel-based color balance.</p>
-        </li>
-        <li class="tools__item">
-          <img src="/exerciciPixelmator/ico_ml@2x.png" class="icono" alt="Icono ML" loading="lazy">
-          <h4 class="tools__item-title type-m is-bold">Enhance photos automagically.</h4>
-          <p class="tools__item-description type-m">Many of the most important adjustments can be applied automatically, using a machine learning algorithm trained on 20 million photos.</p>
-        </li>
-        <li class="tools__item">
-          <img src="/exerciciPixelmator/ico_repair@2x.png" class="icono" alt="Icono herramienta reparar" loading="lazy">
-          <h4 class="tools__item-title type-m is-bold">Perfect every detail.</h4>
-          <p class="tools__item-description type-m">Magically remove unwanted objects, clone parts of your photos, lighten or darken precise areas, and do much more.</p>
-        </li>
-        <li class="tools__item">
-          <img src="/exerciciPixelmator/ico_raw@2x.png" class="icono" alt="Icono RAW" loading="lazy">
-          <h4 class="tools__item-title type-m is-bold">Effortless RAW editing.</h4>
-          <p class="tools__item-description type-m">Pixelmator Pro supports RAW photos from over 750 of the most popular digital cameras.</p>
-          <a href="https://support.pixelmator.com/faq-pixelmator-pro/resources/digital-camera-raw-formats-supported-in-pixelmator-pro" class="tools__item-link type-m" target="_blank" style="margin-top: 15px;">
-            View supported RAW formats
-            <svg height="10" viewBox="0 0 10 20" width="5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="m406.883 378.274c.014.038.033.075.045.114a2.078 2.078 0 0 1 .05.247c.007.044.02.087.024.131a2.1 2.1 0 0 1 0 .251v.131a1.967 1.967 0 0 1 -.044.239c-.01.046-.015.094-.029.14a1.794 1.794 0 0 1 -.077.195c-.023.057-.042.115-.07.169s-.064.1-.1.148a1.759 1.759 0 0 1 -.127.187c0 .007-.009.015-.014.021l-6.024 8.036a2 2 0 1 1 -3.064-2.571l5.055-6.744-5.056-6.693a2 2 0 1 1 3.064-2.571l6.024 7.973s.006.011.01.016a1.94 1.94 0 0 1 .165.241c.018.031.041.06.058.091a1.933 1.933 0 0 1 .11.249z" fill="#327cf6" fill-rule="evenodd" transform="translate(-397 -369)"></path>
-            </svg>
-          </a>
-        </li>
-        <li class="tools__item">
-          <img src="/exerciciPixelmator/ico_color-layers@2x.png" class="icono" alt="Icono capas de color" loading="lazy">
-          <h4 class="tools__item-title type-m is-bold">Make advanced color edits using color adjustments layers.</h4>
-          <p class="tools__item-description type-m">Use color adjustments layers to combine different color adjustments and selectively edit photos.</p>
-        </li>
-      </ul>
-      <p class="tools__more">
-        <a href="#" class="tools__more-link type-l js-open-modal" data-modal="adjustments">
-          <svg height="23" viewBox="0 0 46 46" width="23" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="m318 208a23 23 0 1 1 23-23 23 23 0 0 1 -23 23zm0-43a20 20 0 1 0 20 20 20 20 0 0 0 -20-20zm2 31h-4v-9h-9v-4h9v-9h4v9h9v4h-9z" fill-rule="evenodd" transform="translate(-295 -162)"></path>
-          </svg>
-          See the full list of adjustments
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <section class="pro__design design">
-    <div class="design__wrapper wrapper">
-      <header class="design__header">
-        <h2 class="design__title type-xl">Everything you need to create beautiful designs.</h2>
-        <p class="design__description type-m">Harness the full power of layer-based editing with spacing guides, alignment tools, and blazing fast performance.</p>
-      </header>
-      <picture class="design__artwork artwork">
-        <img src="/exerciciPixelmator/img_design--v1@2x.png" width="1280" height="769" alt="Diseño con múltiples capas en Pixelmator Pro" loading="lazy">
-      </picture>
-      <div class="cards cards--light">
-        <div class="cards__item">
-          <header class="cards__item-info">
-            <h6 class="cards__item-title type-s">Layer-Based Editing</h6>
-            <p class="cards__item-description type-xs">Use shape, text, video, and image layers to create stunning compositions and designs.</p>
-          </header>
-          <figure class="cards__item-artwork">
-            <img src="/exerciciPixelmator/img_design-layers@2x.jpg" width="410" height="310" alt="Panel de capas en Pixelmator Pro" loading="lazy">
-          </figure>
-        </div>
-
-
-        <div class="cards__item">
-  <figure class="cards__item-artwork">
-    <img
-      src="/exerciciPixelmator/img_design-guides@2x.jpg"
-      width="456"
-      height="442"
-      alt="Smart Guides"
-      loading="lazy"
-    >
-  </figure>
-  <header class="cards__item-info">
-    <h6 class="cards__item-title type-s">Smart Guides</h6>
-    <p class="cards__item-description type-xs">
-      The Arrange tool makes it incredibly easy to create designs. It lets you automatically select layers by clicking them on the canvas, intelligently snaps layers into position as you move them around, and even lets you align and distribute layers automatically.
-    </p>
-  </header>
-</div>
-
-        <div class="cards__item">
-          <figure class="cards__item-artwork">
-            <img src="/exerciciPixelmator/img_design-layer-styles@2x.jpg" width="228" height="88" alt="Ejemplo de estilos de capa" loading="lazy">
-          </figure>
-          <header class="cards__item-info">
-            <h6 class="cards__item-title type-s">Layer Styles</h6>
-            <p class="cards__item-description type-xs">Add fills, strokes, and shadows nondestructively; save and reuse presets.</p>
-          </header>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-<section class="pro__templates templates">
-  <div class="page-wrapper">
-  <!-- Aquí va todo tu contenido -->
-</div>
-  <div class="templates__hero templatesHero">
-    <div class="templatesHero__titleWrapper l-wrapper">
-      <div class="templatesHero__titleInner l-inner l-inner--narrow">
-        <h1 class="templatesHero__title type-xl">
-          Create stunning designs like a pro – even if you’re a beginner.
-        </h1>
-        <p class="templatesHero__description">
-          Create eye‑catching designs with ease using stunning design templates and see them come to life in beautiful, fully‑customizable mockups.
-        </p>
-      </div>
-    </div>
-    <div class="templatesHero__artwork">
-      <div class="templatesHero__layer is-base" data-speed="1">
-        <picture class="templatesHero__imageWrapper">
-          <img src="exerciciPixelmator/img_hero--base@2x.jpg" class="templatesHero__image">
-        </picture>
-      </div>
-      <div class="templatesHero__layer is-middle" data-speed="20">
-        <picture class="templatesHero__imageWrapper">
-          <img src="exerciciPixelmator/img_hero--middle.webp" class="templatesHero__image">
-        </picture>
-      </div>
-      <div class="templatesHero__layer is-top" data-speed="7">
-        <picture class="templatesHero__imageWrapper">
-          <img src="exerciciPixelmator/img_hero--top.png" class="templatesHero__image">
-        </picture>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
-
-  <section class="pro__workspace workspace">
-    <div class="workspace__wrapper wrapper">
-      <header class="workspace__header">
-        <h2 class="workspace__title type-xl">Choose a workspace that works for you.</h2>
-        <p class="workspace__description type-m">
-          Move sidebars, customize tools, or choose presets for photographers, designers, painters, and illustrators.
-        </p>
-      </header>
-      <div class="workspace__showcase showcase">
-        <figure class="workspace__showcase-artwork showcase__artwork">
-          <picture class="workspace__showcase-image showcase__image is-active">
-            <img src="exerciciPixelmator/imagen1.png" width="1280" height="769" alt="Workspace preset: Photography" loading="lazy">
-          </picture>
-          <picture class="workspace__showcase-image showcase__image">
-            <img src="exerciciPixelmator/imagen2.png" width="1280" height="769" alt="Workspace preset: Illustration" loading="lazy">
-          </picture>
-          <picture class="workspace__showcase-image showcase__image">
-            <img src="exerciciPixelmator/imagen3.png" width="1280" height="769" alt="Workspace preset: Design" loading="lazy">
-          </picture>
-          <picture class="workspace__showcase-image showcase__image">
-            <img src="exerciciPixelmator/imagen4.png" width="1280" height="769" alt="Workspace preset: Painting" loading="lazy">
-          </picture>
-        </figure>
-        <nav class="workspace__showcase-nav showcase__nav">
-          <div class="workspace__showcase-nav-wrapper">
-            <a href="#" class="workspace__showcase-link showcase__link is-active">Photography</a>
-            <a href="#" class="workspace__showcase-link showcase__link">Illustration</a>
-            <a href="#" class="workspace__showcase-link showcase__link">Design</a>
-            <a href="#" class="workspace__showcase-link showcase__link">Painting</a>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </section>
-  <script>
-  document.querySelectorAll('.workspace__showcase-link').forEach((tab, index) => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelectorAll('.workspace__showcase-link').forEach(t => t.classList.remove('is-active'));
-      document.querySelectorAll('.workspace__showcase-image').forEach(img => img.classList.remove('is-active'));
-      tab.classList.add('is-active');
-      document.querySelectorAll('.workspace__showcase-image')[index].classList.add('is-active');
-    });
-  });
-</script>
-
-
-  <section class="pro__remove-bg remove-bg">
-    <div class="design__wrapper wrapper">
-      <header class="remove-bg__header">
-        <h2 class="remove-bg__title type-xl">Elimina el fondo de cualquier imagen con un solo clic.</h2>
-        <p class="remove-bg__description type-m">La función Eliminar fondo, impulsada por Core ML, selecciona automáticamente el sujeto y limpia los bordes para eliminar el fondo con un clic.</p>
-      </header>
-      <picture class="paint__artwork artwork">
-        <img src="/exerciciPixelmator/img_remove-bg.webp" width="1280" height="769" alt="Ejemplo de eliminación de fondo" loading="lazy">
-      </picture>
-    </div>
-  </section>
-
-<section class="pro__ml ml">
-  <div class="ml__wrapper wrapper">
-    <header class="ml__header">
-      <h2 class="ml__title type-xl">Edición de imágenes impulsada por aprendizaje automático.</h2>
-      <p class="ml__description type-m">
-        Para una edición más inteligente, Pixelmator Pro utiliza aprendizaje automático para crear funciones potentes y rápidas.
-      </p>
     </header>
 
-    <div class="ml-cards">
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="/exerciciPixelmator/img_ml-enhance@2x.png" alt="Icono ML Enhance" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Mejora de ML</h6>
-          <p class="ml-cards__item-description type-xs">Mejora automáticamente tus fotos como un fotógrafo profesional.</p>
-        </header>
-      </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h2 class="hero-title">ROMPE EL VACÍO</h2>
+                    <h3 class="hero-subtitle">MINA EL FUTURO • SOBREVIVE AL ATAQUE</h3>
+                    <p class="hero-description">Un juego de mesa táctico 2-4 jugadores donde la supervivencia humana depende de tu estrategia en el Cinturón de Kuiper.</p>
+                    <div class="hero-buttons">
+                        <a href="#how-to-play" class="btn btn-primary">Cómo Jugar</a>
+                        <a href="instructions.html" class="btn btn-secondary">Instrucciones Completas</a>
+                    </div>
+                </div>
+                <div class="hero-asteroid">
+                    <svg class="asteroid-svg" viewBox="0 0 200 200">
+                        <path class="asteroid-body" d="M100,40 C120,30 150,35 160,50 C170,65 165,85 155,95 C145,105 125,110 105,105 C85,100 70,85 65,70 C60,55 80,50 100,40 Z"/>
+                        <circle class="asteroid-core" cx="100" cy="75" r="15"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="/exerciciPixelmator/img_ml-super-resolution@2x.png" alt="Icono Super Resolution" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Super Resolución</h6>
-          <p class="ml-cards__item-description type-xs">Aumenta la resolución de las imágenes conservando la nitidez y los detalles.</p>
-        </header>
-      </div>
+        <!-- Scroll Animation Trigger -->
+        <div id="scroll-trigger"></div>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="/exerciciPixelmator/img_ml-match-colors@2x.png" alt="Icono Match Colors" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Combina los colores</h6>
-          <p class="ml-cards__item-description type-xs">Ajusta rápidamente los colores y el estilo de cualquier foto.</p>
-        </header>
-      </div>
+        <!-- Adventure Animation -->
+        <section class="adventure-section">
+            <div class="space-parallax">
+                <div class="parallax-layer layer-1"></div>
+                <div class="parallax-layer layer-2"></div>
+                <div class="parallax-layer layer-3"></div>
+                <div class="asteroid-explosion-container">
+                    <div class="asteroid-explosion">
+                        <div class="explosion-particle p1"></div>
+                        <div class="explosion-particle p2"></div>
+                        <div class="explosion-particle p3"></div>
+                        <div class="explosion-particle p4"></div>
+                        <div class="explosion-particle p5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="adventure-text">
+                <h3>LA AVENTURA ESPACIAL</h3>
+                <p>Navega por el peligroso Cinturón de Kuiper, destruye asteroides mutados y defiende la colonia humana de amenazas cósmicas.</p>
+            </div>
+        </section>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="/exerciciPixelmator/img_ml-denoise@2x.png" alt="Icono Denoise" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Eliminar ruido</h6>
-          <p class="ml-cards__item-description type-xs">Elimina el ruido de cámara y artefactos de compresión.</p>
-        </header>
-      </div>
+        <!-- How to Play -->
+        <section id="how-to-play" class="how-to-play-section">
+            <div class="container">
+                <h2 class="section-title">¿CÓMO SE JUEGA?</h2>
+                <div class="mechanics-grid">
+                    <div class="mechanic-card">
+                        <div class="mechanic-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3>Exploración</h3>
+                        <p>Mueve tu nave por el tablero hexagonal para reclamar territorios y descubrir asteroides.</p>
+                    </div>
+                    <div class="mechanic-card">
+                        <div class="mechanic-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Asalto a Asteroides</h3>
+                        <p>Usa láseres y misiles para destruir asteroides y recolectar recursos valiosos.</p>
+                    </div>
+                    <div class="mechanic-card">
+                        <div class="mechanic-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Defensa Cooperativa</h3>
+                        <p>Colabora con otros jugadores para defender la colonia de amenazas cósmicas.</p>
+                    </div>
+                    <div class="mechanic-card">
+                        <div class="mechanic-icon">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <h3>Competencia Estratégica</h3>
+                        <p>Roba recursos de oponentes y utiliza tácticas de piratería para ganar ventaja.</p>
+                    </div>
+                </div>
+                <div class="instructions-link">
+                    <a href="instructions.html" class="btn btn-large">
+                        <i class="fas fa-book-open"></i>
+                        Ver Instrucciones Completas
+                    </a>
+                </div>
+            </div>
+        </section>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="exerciciPixelmator/img_quick-selection-tool@2x.png" alt="Icono Quick Selection" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Herramienta de selección rápida</h6>
-          <p class="ml-cards__item-description type-xs">Haz selecciones precisas con rapidez y facilidad.</p>
-        </header>
-      </div>
+        <!-- Animated SVG Section -->
+        <section class="svg-animation-section">
+            <div class="container">
+                <h2 class="section-title">ANIMACIÓN DE COMBATE</h2>
+                <div class="svg-container">
+                    <svg class="combat-svg" viewBox="0 0 800 400">
+                        <!-- Nave Espacial -->
+                        <g class="spaceship">
+                            <path class="ship-body" d="M200,200 L250,180 L300,200 L250,220 Z"/>
+                            <path class="ship-wing" d="M250,180 L270,160 L300,180 L300,200 L250,200"/>
+                            <circle class="ship-cockpit" cx="230" cy="190" r="8"/>
+                        </g>
+                        
+                        <!-- Asteroide que gira -->
+                        <g class="rotating-asteroid">
+                            <path class="asteroid-path" d="M500,200 C520,180 560,190 570,210 C580,230 560,250 540,240 C520,230 510,220 500,200 Z"/>
+                            <circle class="asteroid-mineral" cx="530" cy="210" r="5"/>
+                            <circle class="asteroid-mineral" cx="520" cy="230" r="7"/>
+                        </g>
+                        
+                        <!-- Láser -->
+                        <line class="laser-beam" x1="300" y1="190" x2="500" y2="210"/>
+                        
+                        <!-- Explosión (oculta inicialmente) -->
+                        <g class="explosion">
+                            <circle class="explosion-core" cx="500" cy="210" r="0"/>
+                            <path class="explosion-ray r1" d="M500,210 L520,190"/>
+                            <path class="explosion-ray r2" d="M500,210 L530,210"/>
+                            <path class="explosion-ray r3" d="M500,210 L520,230"/>
+                            <path class="explosion-ray r4" d="M500,210 L480,230"/>
+                            <path class="explosion-ray r5" d="M500,210 L480,190"/>
+                        </g>
+                        
+                        <!-- Fragmentos de asteroide -->
+                        <circle class="fragment f1" cx="500" cy="210" r="3"/>
+                        <circle class="fragment f2" cx="500" cy="210" r="4"/>
+                        <circle class="fragment f3" cx="500" cy="210" r="5"/>
+                    </svg>
+                    <div class="animation-controls">
+                        <input type="checkbox" id="play-animation" class="animation-checkbox">
+                        <label for="play-animation" class="animation-btn">
+                            <i class="fas fa-play"></i>
+                            Activar Animación de Combate
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="exerciciPixelmator/ico_ml-crop@2x.png" alt="Icono ML Crop" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Recorte</h6>
-          <p class="ml-cards__item-description type-xs">Mejora la composición con un solo clic.</p>
-        </header>
-      </div>
+        <!-- Game Features -->
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">CARACTERÍSTICAS DEL JUEGO</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="feature-content">
+                            <h3>45-75 Minutos</h3>
+                            <p>Duración perfecta para una sesión intensa</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-user-plus"></i>
+                        <div class="feature-content">
+                            <h3>2-4 Jugadores</h3>
+                            <p>Ideal para amigos y familia</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <div class="feature-content">
+                            <h3>Estrategia Profunda</h3>
+                            <p>Combina cooperación y competencia</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-dice"></i>
+                        <div class="feature-content">
+                            <h3>Dados Personalizados</h3>
+                            <p>6 dados con símbolos únicos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="exerciciPixelmator/ico_remove-background@2x.png" alt="Icono Remove Background" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Eliminar fondo</h6>
-          <p class="ml-cards__item-description type-xs">Elimina el fondo de cualquier imagen con un clic.</p>
-        </header>
-      </div>
-
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="exerciciPixelmator/ico_select-subject@2x.png" alt="Icono Select Subject" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Seleccionar sujeto</h6>
-          <p class="ml-cards__item-description type-xs">Selecciona automáticamente los sujetos de las imágenes.</p>
-        </header>
-      </div>
-
-      <div class="ml-cards__item">
-        <header class="ml-cards__item-info">
-          <img src="exerciciPixelmator/img_select-and-mask@2x.png" alt="Icono Select and Mask" loading="lazy">
-          <h6 class="ml-cards__item-title type-s">Seleccionar y máscara</h6>
-          <p class="ml-cards__item-description type-xs">Haz selecciones avanzadas en áreas complejas como cabello o pelaje.</p>
-        </header>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  <section class="pro__repair repair">
-    <div class="repair__wrapper wrapper">
-      <header class="repair__header">
-        <h2 class="repair__title type-xl">Magically get rid of unwanted objects.</h2>
-        <p class="repair__description type-m">Make small imperfections or even entire objects disappear from your images by painting over them with the Repair Tool. No matter how complex the background, the Repair Tool can make almost any object vanish without a trace.</p>
-      </header>
-      <video class="repair__video video-player" width="816" height="510" autoplay muted playsinline loop>
-        <source src="/exerciciPixelmator/video_repair.mp4" type="video/mp4">
-      </video>
-    </div>
-  </section>
-
-  <section class="pro__select select">
-    <div class="select__wrapper wrapper">
-      <header class="select__header">
-        <h2 class="select__title type-xl">Edita tus fotos una a una. O combina varias fotos en una sola.</h2>
-        <p class="select__description type-m">Selecciona y edita con precisión áreas específicas de tus imágenes con herramientas avanzadas.</p>
-      </header>
-      <div class="select__showcase showcase">
-        <figure class="select__showcase-artwork showcase__artwork">
-          <picture class="select__showcase-image showcase__image is-active">
-            <img src="/exerciciPixelmator/img-1.png" width="1280" height="769" alt="Selección rápida sobre una imagen" loading="lazy">
-          </picture>
-          <picture class="select__showcase-image showcase__image">
-            <img src="/exerciciPixelmator/img-2.png" width="1280" height="769" alt="Selección magnética" loading="lazy">
-          </picture>
-          <picture class="select__showcase-image showcase__image">
-            <img src="/exerciciPixelmator/img3.png" width="1280" height="769" alt="Selección de color" loading="lazy">
-          </picture>
-          <picture class="select__showcase-image showcase__image">
-            <img src="/exerciciPixelmator/img-4.png" width="1280" height="769" alt="Selecciones básicas" loading="lazy">
-          </picture>
-        </figure>
-        <nav class="select__showcase-nav showcase__nav">
-          <div class="select__showcase-nav-wrapper">
-            <a href="#" class="select__showcase-link showcase__link is-active">Selección rápida</a>
-            <a href="#" class="select__showcase-link showcase__link">Selección magnética</a>
-            <a href="#" class="select__showcase-link showcase__link">Selección de color</a>
-            <a href="#" class="select__showcase-link showcase__link">Selecciones básicas</a>
-          </div>
-        </nav>
-        <div class="select__showcase-description showcase__description">
-          <p class="showcase__description-item type-xs is-active">Selecciona fácilmente incluso los objetos más difíciles con pocas pinceladas.</p>
-          <p class="showcase__description-item type-xs">Traza los bordes y ajusta automáticamente una selección precisa.</p>
-          <p class="showcase__description-item type-xs">Selecciona rápidas y sencillamente las partes con colores similares.</p>
-          <p class="showcase__description-item type-xs">Selecciones rectangulares, elípticas, filas, columnas y a mano alzada.</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-copyright">
+                <p>&copy; 2024 Void Breakers: Asteroid Assault. Todos los derechos reservados.</p>
+                <p class="footer-credits">Desarrollado con <i class="fas fa-heart"></i> por el equipo de DAM1M04</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <script>
-  const tabLinks = document.querySelectorAll('.select__showcase-link');
-  const images = document.querySelectorAll('.select__showcase-image');
-  const descriptions = document.querySelectorAll('.showcase__description-item');
+    </footer>
 
-  tabLinks.forEach((tab, index) => {
-    tab.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      // Tabs
-      tabLinks.forEach(t => t.classList.remove('is-active'));
-      tab.classList.add('is-active');
-
-      // Images
-      images.forEach(img => img.classList.remove('is-active'));
-      images[index].classList.add('is-active');
-
-      // Descriptions
-      descriptions.forEach(desc => desc.classList.remove('is-active'));
-      descriptions[index].classList.add('is-active');
-    });
-  });
-</script>
-
-
-  <section class="pro__text text">
-  <header class="text-path__header">
-    <h2 class="text-path__title">Easily design <span>great-looking text.</span></h2>
-    <figure class="text-path__artwork">
-      <img src="/exerciciPixelmator/img_text@2x.jpg" alt="Texto curvo en trayectoria" loading="lazy">
-    </figure>
-    <p class="text-path__description">
-      Using the powerful Type tools in Pixelmator Pro, you can easily design great-looking text in all your images. Effortlessly create curved text or type along shapes and paths. And use a full set of typography tools to customize text in any way you can imagine.
-    </p>
-    <div class="text-path__button">Type on a Path</div>
-  </header>
-
-  <!-- Aquí cambiamos "cards" por "cards-text" -->
-  <div class="cards-text">
-    <div class="cards-text__item">
-      <header class="cards-text__item-info">
-        <h6 class="cards-text__item-title type-s">Type on a Path</h6>
-        <p class="cards-text__item-description type-xs">Create circular text, path text, or type around default or custom shapes.</p>
-      </header>
-      <figure class="cards-text__item-artwork">
-        <picture class="cards-text__item-image">
-          <img src="/exerciciPixelmator/img_text-on-a-path@2x.jpg" width="516" height="350" alt="Texto sobre una trayectoria" loading="lazy">
-        </picture>
-      </figure>
-    </div>
-
-    <div class="cards-text__item">
-      <header class="cards-text__item-info">
-        <h6 class="cards-text__item-title type-s">Typography Features</h6>
-        <p class="cards-text__item-description type-xs">Customize font, color, emphasis, alignment, spacing, ligatures, glyphs, and more.</p>
-      </header>
-      <figure class="cards-text__item-artwork">
-        <video width="333" height="70" autoplay muted playsinline loop>
-          <source src="/exerciciPixelmator/video_text-advanced.mp4" type="video/mp4">
-        </video>
-      </figure>
-    </div>
-
-    <div class="cards-text__item">
-      <header class="cards-text__item-info">
-        <h6 class="cards-text__item-title type-s">SVG Fonts</h6>
-        <p class="cards-text__item-description type-xs">Use multicolored or textured SVG fonts in your designs.</p>
-      </header>
-      <figure class="cards-text__item-artwork">
-        <img src="/exerciciPixelmator/img_text-svg-fonts@2x.jpg" class="cards-text__item-image" width="333" height="113" alt="Tipografías SVG con textura y color" loading="lazy">
-      </figure>
-    </div>
-  </div>
-</section>
-
-
-  <section class="pro__effects effects">
-    <header class="effects__header">
-      <h2 class="effects__title type-xl">Real-time, nondestructive, blockbuster effects.</h2>
-      <p class="effects__description type-m">Apply, mix, and remove effects nondestructively, seeing all changes in real time.</p>
-    </header>
-    <div class="effects__columns">
-      <picture class="effects__artwork">
-        <img src="/exerciciPixelmator/img_effects@2x.png" class="effects__image" width="1280" height="769" alt="Vista general de efectos disponibles" loading="lazy">
-      </picture>
-      <div class="effects__info cards">
-        <div class="effects__row cards__item">
-          <header class="cards__item-info">
-            <h6 class="cards__item-title type-s">Over 60 Effects</h6>
-            <p class="cards__item-description type-xs">Blur, Distortion, Sharpen, Color Adjustments, Tile, Stylize, Halftone, Generator, Fill, and Others.</p>
-          </header>
+    <!-- Easter Egg - Personaje Secreto (oculto) -->
+    <input type="checkbox" id="secret-trigger" class="secret-checkbox">
+    <div class="secret-character">
+        <label for="secret-trigger" class="secret-close">×</label>
+        <div class="secret-content">
+            <img src="images/nave-secreta.jpg" alt="Personaje Secreto" class="secret-image">
+            <h3>¡DESBLOQUEADO!</h3>
+            <h4>ZANE - EL ANDROIDE RENEGADO</h4>
+            <p>Un androide minero reprogramado con habilidades de hacking. Puede desactivar temporalmente las defensas de otras naves y extraer minerales raros de asteroides "imposibles".</p>
+            <p><strong>Habilidad Especial:</strong> "Sobrecarga de Sistemas" - Roba 1 recurso de cada oponente al comienzo de tu turno.</p>
         </div>
-        <div class="effects__row cards__item">
-          <header class="cards__item-info">
-            <h6 class="cards__item-title type-s">Effects Browser</h6>
-            <p class="cards__item-description type-xs">Browse, search by name, see instant previews, and quickly apply effects.</p>
-          </header>
-          <figure class="cards__item-artwork">
-            <img src="exerciciPixelmator/img_effects-browser@2x.png" alt="Navegador de efectos" loading="lazy">
-          </figure>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <section class="pro__photos-app photos-app">
-    <div class="paint__wrapper wrapper">
-      <header class="photos-app__header">
-        <h2 class="photos-app__title type-xl">Turn your Photos app into an image editing powerhouse.</h2>
-        <p class="photos-app__description type-m">Use the Pixelmator Pro editing extension right inside Photos, keeping all edits saved nondestructively.</p>
-      </header>
-      <picture class="photos-app__video video-player">
-        <img src="exerciciPixelmator/img_extension.png" class="video-player__image" width="816" height="510" alt="Extensión de Pixelmator Pro en la app Fotos" loading="lazy">
-      </picture>
-    </div>
-  </section>
-
-  <section class="pro__advanced advanced">
-    <div class="advanced__wrapper wrapper">
-      <header class="advanced__header">
-        <h2 class="advanced__title type-xl">Advanced features for advanced workflows.</h2>
-        <p class="advanced__description type-m">Find Export for Web, Soft Proofing, PSD support, color management, AppleScript, and more.</p>
-      </header>
-      <ul class="advanced__features">
-        <li class="advanced__item">
-          <img src="exerciciPixelmator/ico_optimize-for-web@2x.png" class="advanced__item-icon" width="59" height="59" alt="Icono Optimize for Web" loading="lazy">
-          <h4 class="advanced__item-title type-s">Optimize for Web</h4>
-        </li>
-        <li class="advanced__item">
-          <img src="exerciciPixelmator/ico_soft-proofing@2x.png" class="advanced__item-icon" width="59" height="59" alt="Icono Soft Proofing" loading="lazy">
-          <h4 class="advanced__item-title type-s">Soft Proofing</h4>
-        </li>
-        <li class="advanced__item">
-          <img src="exerciciPixelmator/ico_color-management@2x.png" class="advanced__item-icon" width="59" height="59" alt="Icono Color Management" loading="lazy">
-          <h4 class="advanced__item-title type-s">Color Management</h4>
-        </li>
-        <li class="advanced__item">
-          <img src="exerciciPixelmator/ico_psd@2x.png" class="advanced__item-icon" width="59" height="59" alt="Icono PSD" loading="lazy">
-          <h4 class="advanced__item-title type-s">PSD Files</h4>
-        </li>
-      </ul>
-      <p class="advanced__full">
-        <a href="/pro/tech-specs/" class="advanced__full-link type-m">
-          See full tech specs
-          <svg height="10" viewBox="0 0 10 20" width="5" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="m406.883 378.274c.014.038.033.075.045.114a2.078 2.078 0 0 1 .05.247c.007.044.02.087.024.131a2.1 2.1 0 0 1 0 .251v.131a1.967 1.967 0 0 1 -.044.239c-.01.046-.015.094-.029.14a1.794 1.794 0 0 1 -.077.195c-.023.057-.042.115-.07.169s-.064.1-.1.148a1.759 1.759 0 0 1 -.127.187c0 .007-.009.015-.014.021l-6.024 8.036a2 2 0 1 1 -3.064-2.571l5.055-6.744-5.056-6.693a2 2 0 1 1 3.064-2.571l6.024 7.973s.006.011.01.016a1.94 1.94 0 0 1 .165.241c.018.031.041.06.058.091a1.933 1.933 0 0 1 .11.249z" fill="#327cf6" fill-rule="evenodd" transform="translate(-397 -369)"></path>
-          </svg>
-        </a>
-      </p>
-    </div>
-  </section>
-
-  <section class="pro__mac-app mac-app">
-    <figure class="mac-app__artwork">
-      <img src="exerciciPixelmator/img_dock@2x.jpg" class="mac-app__artwork-image" width="2560" height="137" alt="Dock de macOS con Pixelmator Pro" loading="lazy">
-    </figure>
-    <div class="mac-app__wrapper wrapper">
-      <header class="mac-app__header">
-        <h2 class="mac-app__title type-xl">Designed and built exclusively for Mac.</h2>
-        <p class="mac-app__description type-m">Enjoy full support for iCloud, Versions, Shortcuts, Sidecar, Apple Pencil, and many others.</p>
-      </header>
-      <ul class="mac-app__features">
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_universal@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Universal App" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Universal App</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_icloud-drive@2X.png" class="mac-app__item-icon" width="52" height="52" alt="Icono iCloud Drive" loading="lazy">
-          <h4 class="mac-app__item-title type-s">iCloud Drive</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_photos-extension@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Photos Extension" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Photos Extension</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_retina-display@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Retina Display" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Retina Display</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_light-and-dark-appearance@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Light & Dark" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Light and Dark Appearance</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_universal-control@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Universal Control" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Universal Control</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_sidecar@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Sidecar" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Sidecar</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_apple-pencil@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Apple Pencil" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Apple Pencil</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_shortcuts@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Shortcuts" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Shortcuts</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_applescript@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono AppleScript" loading="lazy">
-          <h4 class="mac-app__item-title type-s">AppleScript</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_versions@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono Versions" loading="lazy">
-          <h4 class="mac-app__item-title type-s">Versions</h4>
-        </li>
-        <li class="mac-app__item">
-          <img src="exerciciPixelmator/ico_facetime@2x.png" class="mac-app__item-icon" width="52" height="52" alt="Icono FaceTime Camera" loading="lazy">
-          <h4 class="mac-app__item-title type-s">FaceTime Camera</h4>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="pro__mac-technologies mac-technologies">
-    <div class="mac-technologies__wrapper wrapper">
-      <header class="mac-technologies__header">
-        <h2 class="mac-technologies__title type-xl">Powered by the latest Mac technologies.</h2>
-        <p class="mac-technologies__description type-m">Designed to harness Mac performance using Metal, Core Image, and Core ML.</p>
-      </header>
-      <ul class="mac-technologies__features">
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/ico_apple-silicon@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono Apple Silicon" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">Apple Silicon</h4>
-          <p class="mac-technologies__item-description type-xs">Runs natively on Apple silicon for incredible performance.</p>
-        </li>
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/img_metal@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono Metal" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">Metal</h4>
-          <p class="mac-technologies__item-description type-xs">Harnesses the full graphics processing power of every Mac.</p>
-        </li>
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/img_coreml@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono Core ML" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">Core ML</h4>
-          <p class="mac-technologies__item-description type-xs">ML features integrated using Core ML optimized for Mac.</p>
-        </li>
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/img_swift@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono Swift" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">Built with Swift</h4>
-          <p class="mac-technologies__item-description type-xs">Modern language for efficiency, reliability, and performance.</p>
-        </li>
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/img_core-image@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono Core Image" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">Core Image</h4>
-          <p class="mac-technologies__item-description type-xs">Enables blazing fast, nondestructive image processing.</p>
-        </li>
-        <li class="mac-technologies__item">
-          <img src="exerciciPixelmator/img_swiftui@2x.png" class="mac-technologies__item-icon" width="58" height="58" alt="Icono SwiftUI" loading="lazy">
-          <h4 class="mac-technologies__item-title type-s">SwiftUI</h4>
-          <p class="mac-technologies__item-description type-xs">High-performance UI animations powered by SwiftUI.</p>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="pro__awards awards">
-    <div class="awards__wrapper wrapper">
-      <header class="awards__header">
-        <h2 class="awards__title type-xl">We know you'll love Pixelmator Pro. But don't take our word for it.</h2>
-        <p class="awards__description type-m">Average worldwide rating of 4.8 out of 5 with tens of thousands of five-star ratings.</p>
-      </header>
-      <ul class="awards__features">
-        <li class="awards__item">
-          <img src="/exerciciPixelmator/img_app-of-the-year@2x.png" class="awards__item-icon" width="144" height="63" alt="Mac App of the Year" loading="lazy">
-          <h4 class="awards__item-title type-s">Awarded Mac App of the Year by Apple.</h4>
-        </li>
-        <li class="awards__item">
-          <img src="/exerciciPixelmator/img_editors-choice-v1@2x.png" class="awards__item-icon" width="144" height="63" alt="Editors’ Choice" loading="lazy">
-          <h4 class="awards__item-title type-s">Highlighted as an Editors’ Choice on the Mac App Store.</h4>
-        </li>
-        <li class="awards__item">
-          <img src="/exerciciPixelmator/img_rating@2x.png" class="awards__item-icon" width="144" height="63" alt="Valoración media 4.8" loading="lazy">
-          <h4 class="awards__item-title type-s">Rated 4.8 worldwide with over 55,500 ratings.</h4>
-        </li>
-        <li class="awards__item">
-          <img src="/exerciciPixelmator/ico_stars@2x.png" class="awards__item-icon" width="144" height="63" alt="Miles de valoraciones de cinco estrellas" loading="lazy">
-          <h4 class="awards__item-title type-s">Received over 48,000 five-star ratings worldwide.</h4>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <footer class="buy l-wrapper">
-    <div class="buy__wrapper wrapper">
-      <img class="buy__icon" src="/exerciciPixelmator/ico_pixelamtor-pro-2.0@2x.png" width="128" height="128" alt="Icono Pixelmator Pro" loading="lazy">
-      <h2 class="buy__title">Pixelmator Pro</h2>
-      <h3 class="buy__description">Available on the Mac App Store for $49.99.</h3>
-      <a href="/pro/buy/index.html" class="buy__btn">Buy now</a>
-    </div>
-  </footer>
-
-  <footer class="global-footer">
-    <div class="global-footer__wrapper l-wrapper">
-      <div class="global-footer__nav l-inner l-inner--narrow">
-        <div class="global-footer__nav-columns">
-          <div class="global-footer__nav-column">
-            <h5 class="global-footer__nav-title"><span>Pixelmator Pro</span><span class="global-footer-arrow"></span></h5>
-            <nav class="global-footer__nav-links">
-              <a href="/pro/" class="global-footer__nav-link">Overview</a>
-              <a href="/pro/buy/" class="global-footer__nav-link">Buy</a>
-              <a href="/pro/tech-specs/" class="global-footer__nav-link">Tech Specs</a>
-              <a href="https://support.pixelmator.com/pixelmator-pro-user-guide" target="_blank" class="global-footer__nav-link">User Guide</a>
-            </nav>
-          </div>
-          <div class="global-footer__nav-column">
-            <h5 class="global-footer__nav-title"><span>Photomator</span><span class="global-footer-arrow"></span></h5>
-            <nav class="global-footer__nav-links">
-              <a href="/photomator/" class="global-footer__nav-link">Overview</a>
-              <a href="/photomator/buy/" class="global-footer__nav-link">Buy</a>
-              <a href="https://support.pixelmator.com/photomator-user-guide" target="_blank" class="global-footer__nav-link">User Guide</a>
-            </nav>
-          </div>
-          <div class="global-footer__nav-column">
-            <h5 class="global-footer__nav-title"><span>Pixelmator for iOS</span><span class="global-footer-arrow"></span></h5>
-            <nav class="global-footer__nav-links">
-              <a href="/ios/" class="global-footer__nav-link">Overview</a>
-              <a href="/ios//buy/" class="global-footer__nav-link">Buy</a>
-            </nav>
-          </div>
-          <div class="global-footer__nav-column">
-            <h5 class="global-footer__nav-title"><span>Pixelmator Team</span><span class="global-footer-arrow"></span></h5>
-            <nav class="global-footer__nav-links">
-              <a href="/blog/" class="global-footer__nav-link">Blog</a>
-              <a href="https://support.pixelmator.com/" target="_blank" class="global-footer__nav-link">Support</a>
-              <a href="https://www.apple.com/legal/privacy/en-ww/" target="_blank" class="global-footer__nav-link">Privacy Policy</a>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div class="global-footer__copyright l-inner l-inner--narrow">
-        <p class="global-footer__copyright-text">
-          Corporate Address: Apple Inc., One Apple Park Way, Cupertino, CA 95014<br>
-          Contact Email: info@pixelmator.com<br>
-          Data about the company is registered with Secretary of State of the State of California under entity number 0806592.<br>
-          Copyright © 2025 Apple Inc. All rights reserved.<br>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts funcionales para showcases -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Workspace showcase
-      const wsLinks = document.querySelectorAll('.workspace__showcase-link');
-      const wsImages = document.querySelectorAll('.workspace__showcase-image');
-      wsLinks.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          wsLinks.forEach(l => l.classList.remove('is-active'));
-          wsImages.forEach(img => img.classList.remove('is-active'));
-          link.classList.add('is-active');
-          wsImages[index].classList.add('is-active');
-        });
-      });
-
-      // Select showcase
-      const selLinks = document.querySelectorAll('.select__showcase-link');
-      const selImages = document.querySelectorAll('.select__showcase-image');
-      const selDescriptions = document.querySelectorAll('.showcase__description-item');
-
-      selLinks.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          selLinks.forEach(l => l.classList.remove('is-active'));
-          selImages.forEach(img => img.classList.remove('is-active'));
-          selDescriptions.forEach(desc => desc.classList.remove('is-active'));
-
-          link.classList.add('is-active');
-          selImages[index].classList.add('is-active');
-          selDescriptions[index].classList.add('is-active');
-        });
-      });
-    });
-  </script>
+    <!-- Hidden Trigger for Secret (click en logo 5 veces) -->
+    <div class="secret-trigger-area" id="secret-trigger-area"></div>
 </body>
 </html>
