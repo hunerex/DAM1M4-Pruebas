@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void Breakers: Asteroid Assault - Juego de Mesa Sci-Fi</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        /* ========== VARIABLES CSS ========== */
+        :root {
+            /* Colores */
+            --bg-primary: #0a0e27;
+            --bg-secondary: #0f1333;
+            --bg-tertiary: #151b3d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-cyan: #00d9ff;
+            --accent-magenta: #ff006e;
+            --accent-purple: #9d00ff;
+            
+            /* Tipografía */
+            --font-primary: 'Inter', sans-serif;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.5rem;
+            --font-size-xl: 2rem;
+            --font-size-2xl: 2.5rem;
+            --font-size-3xl: 3rem;
+            
+            /* Espaciado */
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            
+            /* Otros */
+            --radius: 8px;
+            --radius-lg: 12px;
+            --transition: 250ms ease-out;
+        }
+
+        /* ========== RESET GLOBAL ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* ========== TIPOGRAFÍA ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: var(--font-size-2xl);
+        }
+
+        h3 {
+            font-size: var(--font-size-xl);
+        }
+
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+
+        a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+
+        a:hover {
+            color: #00f0ff;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+            padding: var(--spacing-md) 0;
+        }
+
+        .header__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header__logo-section {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo__svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 8px rgba(0, 217, 255, 0.3));
+        }
+
+        .header__title {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        /* Navegación */
+        .nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            margin: 0 var(--spacing-xl);
+        }
+
+        .nav__list {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav__link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            position: relative;
+            transition: color var(--transition);
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+            transition: width var(--transition);
+        }
+
+        .nav__link:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .nav__link--active {
+            color: var(--accent-cyan);
+        }
+
+        .nav__link--active::after {
+            width: 100%;
+        }
+
+        /* ========== PARALLAX BG ========== */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #e0e0e0, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .stars--layer-1 { opacity: 0.5; animation-duration: 20s; }
+        .stars--layer-2 { opacity: 0.3; animation-duration: 25s; top: 50px; left: 50px; }
+        .stars--layer-3 { opacity: 0.2; animation-duration: 30s; top: 100px; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3xl) var(--spacing-md);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(255, 0, 110, 0.05));
+            z-index: -1;
+        }
+
+        .hero__content {
+            max-width: 800px;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero__title {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--accent-cyan);
+            margin-bottom: var(--spacing-lg);
+            font-weight: 600;
+        }
+
+        .hero__description {
+            font-size: var(--font-size-md);
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.7;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== ASTEROIDES ========== */
+        .asteroid-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .asteroid {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.3), transparent);
+            border-radius: 50%;
+            border: 2px solid var(--accent-cyan);
+            opacity: 0;
+        }
+
+        .asteroid--1 {
+            animation: asteroidFly 6s ease-in infinite;
+            width: 80px;
+            height: 80px;
+        }
+
+        .asteroid--2 {
+            animation: asteroidFly 7s ease-in infinite 2s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .asteroid--3 {
+            animation: asteroidFly 8s ease-in infinite 4s;
+            width: 70px;
+            height: 70px;
+        }
+
+        @keyframes asteroidFly {
+            from {
+                transform: translateX(-200px) translateY(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            to {
+                transform: translateX(calc(100vw + 200px)) translateY(100px);
+                opacity: 0;
+            }
+        }
+
+        /* SVG Asteroide */
+        .asteroid-svg-container {
+            position: absolute;
+            bottom: -100px;
+            right: 10%;
+            width: 200px;
+            height: 200px;
+            z-index: 2;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .asteroid-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.3));
+            animation: asteroidRotate 20s linear infinite, asteroidPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes asteroidRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes asteroidPulse {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0, 217, 255, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.6)); }
+        }
+
+        /* ========== BOTONES ========== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md) var(--spacing-xl);
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn--primary {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5), 0 0 20px rgba(255, 0, 110, 0.3);
+        }
+
+        .btn--primary:active {
+            transform: translateY(0);
+        }
+
+        .btn--secondary {
+            background-color: rgba(0, 217, 255, 0.1);
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+        }
+
+        .btn--secondary:hover {
+            background-color: rgba(0, 217, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn--lg {
+            padding: var(--spacing-lg) var(--spacing-2xl);
+            font-size: var(--font-size-lg);
+        }
+
+        /* ========== SECCIÓN "¿CÓMO SE JUEGA?" ========== */
+        .how-to-play {
+            padding: var(--spacing-3xl) 0;
+            background: linear-gradient(180deg, transparent, rgba(0, 217, 255, 0.02));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            font-size: var(--font-size-md);
+        }
+
+        .mechanics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .mechanic-card {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.05), rgba(255, 0, 110, 0.05));
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mechanic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-magenta));
+        }
+
+        .mechanic-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .mechanic-card__number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+            color: var(--bg-primary);
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+        }
+
+        .mechanic-card__title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .mechanic-card__description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .how-to-play__footer {
+            text-align: center;
+            padding: var(--spacing-xl);
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .how-to-play__footer p {
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        /* ========== CARACTERÍSTICAS ========== */
+        .features {
+            padding: var(--spacing-3xl) 0;
+            background-color: var(--bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .feature {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            background: rgba(0, 217, 255, 0.03);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            transition: all var(--transition);
+        }
+
+        .feature:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .feature__icon {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-md);
+            display: block;
+        }
+
+        .feature h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid rgba(0, 217, 255, 0.2);
+            padding: var(--spacing-2xl) 0;
+            margin-top: var(--spacing-3xl);
+        }
+
+        .footer__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer__copyright p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .footer__socials {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(0, 217, 255, 0.1);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: all var(--transition);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        .social-link .material-icons {
+            font-size: 20px;
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: calc(100vh - 70px);
+                padding: var(--spacing-2xl) var(--spacing-md);
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1.125rem;
+            }
+
+            .asteroid-svg-container {
+                width: 150px;
+                height: 150px;
+                right: 5%;
+            }
+
+            .parallax-bg {
+                display: none;
+            }
+
+            .mechanics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer__container {
+                justify-content: center;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .asteroid-container {
+                display: none;
+            }
+
+            .asteroid-svg-container {
+                display: none;
+            }
+
+            .hero__title {
+                font-size: 1.5rem;
+            }
+
+            .header__title {
+                font-size: var(--font-size-lg);
+            }
+
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo-section">
+                <div class="logo">
+                    <svg class="logo__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="#00d9ff" stroke-width="2"/>
+                        <path d="M 30 40 Q 35 30 45 35 T 60 40" fill="none" stroke="#00d9ff" stroke-width="2"/>
+                        <line x1="20" y1="20" x2="80" y2="80" stroke="#ff006e" stroke-width="1.5" stroke-linecap="round"/>
+                        <text x="50" y="95" font-size="10" text-anchor="middle" fill="#00d9ff" font-weight="bold">VB</text>
+                    </svg>
+                </div>
+                <h1 class="header__title">VOID BREAKERS</h1>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link nav__link--active">Inicio</a></li>
+                    <li><a href="instrucciones.html" class="nav__link">Instrucciones</a></li>
+                    <li><a href="historia.html" class="nav__link">Historia</a></li>
+                    <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+                    <li><a href="about.html" class="nav__link">Equipo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== PARALLAX BACKGROUND ==================== -->
+    <div class="parallax-bg">
+        <div class="stars stars--layer-1"></div>
+        <div class="stars stars--layer-2"></div>
+        <div class="stars stars--layer-3"></div>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero">
+        <div class="hero__content">
+            <h2 class="hero__title">Rompe el Vacío</h2>
+            <p class="hero__subtitle">Mina el futuro. Sobrevive al asalto.</p>
+            <p class="hero__description">
+                Un juego de mesa épico para 2-4 jugadores en el Cinturón de Kuiper.
+                <br>Estrategia táctica, cooperación dinámica y explosiones cósmicas.
+            </p>
+            <a href="#como-se-juega" class="btn btn--primary btn--lg">Comienza la Aventura</a>
+        </div>
+
+        <!-- Asteroides volantes -->
+        <div class="asteroid-container">
+            <div class="asteroid asteroid--1"></div>
+            <div class="asteroid asteroid--2"></div>
+            <div class="asteroid asteroid--3"></div>
+        </div>
+
+        <!-- SVG Asteroide -->
+        <div class="asteroid-svg-container">
+            <svg class="asteroid-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="60" fill="none" stroke="#00d9ff" stroke-width="2" opacity="0.5"/>
+                <path d="M 70 60 Q 50 80 60 110 Q 80 130 110 120 Q 140 110 130 80 Q 120 50 90 50 Z" fill="none" stroke="#ff006e" stroke-width="2.5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN "¿CÓMO SE JUEGA?" ==================== -->
+    <section id="como-se-juega" class="how-to-play">
+        <div class="container">
+            <h2 class="section-title">¿Cómo Se Juega?</h2>
+            <p class="section-subtitle">Domina las mecánicas del Cinturón de Kuiper en 4 sencillos pasos</p>
+
+            <div class="mechanics-grid">
+                <div class="mechanic-card">
+                    <div class="mechanic-card__number">1</div>
+                    <h3 class="mechanic-card__title">Preparación</h3>
+                    <p class="mechanic-card__description">Coloca el tablero hexagonal 5×5. Cada jugador elige una nave y recibe 5 cartas iniciales.</p>
+                </div>
+
+                <div class="mechanic-card">
+                    <div class="mechanic-card__number">2</div>
+                    <h3 class="mechanic-card__title">Exploración</h3>
+                    <p class="mechanic-card__description">Mueve tu nave 1-3 hexes. Tira un dado para navegar: éxito = bonus de recursos.</p>
+                </div>
+
+                <div class="mechanic-card">
+                    <div class="mechanic-card__number">3</div>
+                    <h3 class="mechanic-card__title">Asalto</h3>
+                    <p class="mechanic-card__description">Ataca asteroides. Tira 3 dados: cada "Láser" = 1 golpe. 3 golpes destruyen la roca.</p>
+                </div>
+
+                <div class="mechanic-card">
+                    <div class="mechanic-card__number">4</div>
+                    <h3 class="mechanic-card__title">Victoria</h3>
+                    <p class="mechanic-card__description">Tras 10 rondas, suma recursos. ¿Sobrevivisteis? ¡Forjasteis un nuevo futuro!</p>
+                </div>
+            </div>
+
+            <div class="how-to-play__footer">
+                <p><strong>Duración:</strong> 45-75 min | <strong>Jugadores:</strong> 2-4 | <strong>Edad:</strong> 12+</p>
+                <a href="instrucciones.html" class="btn btn--secondary">Ver Instrucciones Completas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CARACTERÍSTICAS ==================== -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Void Breakers?</h2>
+            <p class="section-subtitle">Descubre qué hace especial este juego de mesa</p>
+
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature__icon">🚀</div>
+                    <h3>Estrategia Táctica</h3>
+                    <p>Toma decisiones críticas cada ronda: ¿cooperas o compites?</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature__icon">💥</div>
+                    <h3>Dinámico y Caótico</h3>
+                    <p>Eventos cósmicos cambian el juego. Nada es predecible en el vacío.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature__icon">🌌</div>
+                    <h3>Narrativa Épica</h3>
+                    <p>Una saga de supervivencia ambientada en el Cinturón de Kuiper.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="feature__icon">👥</div>
+                    <h3>Multijugador Intenso</h3>
+                    <p>Alianzas frágiles y traiciones ligeras. Cooperación + competencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__copyright">
+                <p>&copy; 2025 Void Breakers: Asteroid Assault. All rights reserved.</p>
+            </div>
+            <div class="footer__socials">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">
+                    <span class="material-icons">share</span>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+                    <span class="material-icons">photo_camera</span>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook">
+                    <span class="material-icons">thumb_up</span>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-link" title="TikTok">
+                    <span class="material-icons">music_note</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Parallax scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.stars').forEach((star, index) => {
+                star.style.transform = `translateY(${scrolled * (0.3 + index * 0.1)}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
