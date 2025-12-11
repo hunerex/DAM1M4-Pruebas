@@ -738,7 +738,7 @@ select.form-control {
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
-```css
+
 /* ================================================================
    GLOBAL.CSS - Reset, Tipografía, Variables Globales
    ================================================================ */
@@ -1054,4 +1054,3 @@ li {
     background-color: var(--color-primary);
     color: var(--color-btn-primary-text);
 }
-```
