@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto Root: A Woodland Game - Ponte en contacto con nosotros">
+    <title>Root: Contacto</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="assets/img/logo.jpg" alt="Logo Root" class="logo" loading="lazy">
+            </div>
+            <h1 class="header__title">Root: A Woodland Game</h1>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburger" aria-label="Menú">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </label>
+            <nav class="nav" role="navigation">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li><a href="instrucciones.html" class="nav__link">Instrucciones</a></li>
+                    <li><a href="historia.html" class="nav__link">Historia</a></li>
+                    <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main" role="main">
+        <section class="hero">
+            <div class="hero__bg" style="background-image: url('assets/img/hero.jpg')"></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h2 class="hero__title">Contacta con Nosotros</h2>
+                <p class="hero__subtitle">Conecta con la Comunidad Woodland</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2 class="section-title">Información de Contacto</h2>
+                        
+                        <div class="info-box">
+                            <span class="material-icons info-icon">location_on</span>
+                            <div>
+                                <h4>Dirección</h4>
+                                <p>Calle del Bosque Ancestral 23<br>28001 Madrid, España</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <span class="material-icons info-icon">phone</span>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p><a href="tel:+34911234567">+34 91 123 45 67</a></p>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <span class="material-icons info-icon">email</span>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:info@rootwoodland.com">info@rootwoodland.com</a></p>
+                            </div>
+                        </div>
+
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.5432098765432!2d-3.7038!3d40.4168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDI1JzAuNSJOIDPCsDQyJzEzLjdiVw!5e0!3m2!1sen!2ses!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h2 class="section-title">Envíanos un Mensaje</h2>
+                        <form class="form">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{3,50}$" placeholder="Tu nombre completo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" pattern="^\+?[0-9\s\-\(\)]{9,15}$" placeholder="+34 91 123 45 67">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="asunto">Asunto *</label>
+                                <input type="text" id="asunto" name="asunto" required minlength="5" maxlength="100" placeholder="¿En qué podemos ayudarte?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje *</label>
+                                <textarea id="mensaje" name="mensaje" required minlength="10" maxlength="500" rows="5" placeholder="Cuéntanos tu consulta o sugerencia..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__left">
+                <p class="footer__text">© 2025 Root: A Woodland Game. Esperamos tu voz en el Woodland.</p>
+            </div>
+            <div class="footer__right">
+                <nav class="social" role="navigation" aria-label="Redes sociales">
+                    <a href="https://x.com" class="social__link" title="Twitter" aria-label="Twitter">
+                        <span class="material-icons">share</span>
+                    </a>
+                    <a href="https://instagram.com" class="social__link" title="Instagram" aria-label="Instagram">
+                        <span class="material-icons">photo_camera</span>
+                    </a>
+                    <a href="https://facebook.com" class="social__link" title="Facebook" aria-label="Facebook">
+                        <span class="material-icons">people</span>
+                    </a>
+                    <a href="https://tiktok.com" class="social__link" title="TikTok" aria-label="TikTok">
+                        <span class="material-icons">music_video</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .contact-section {
+            padding: 3rem 0;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-icon {
+            color: #1a472a;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .info-box h4 {
+            color: #1a472a;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #2c3e50;
+        }
+
+        .info-box a {
+            color: #1a472a;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .info-box a:hover {
+            color: #D4AF37;
+        }
+
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            height: 400px;
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .form {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form label {
+            display: block;
+            color: #1a472a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form input,
+        .form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            color: #1a1a1a;
+        }
+
+        .form input:focus,
+        .form textarea:focus {
+            outline: none;
+            border-color: #D4AF37;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .form input:valid {
+            border-color: #27ae60;
+        }
+
+        .form input:invalid:not(:placeholder-shown) {
+            border-color: #e74c3c;
+            animation: shake 0.4s ease;
+        }
+
+        .form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</body>
+</html>

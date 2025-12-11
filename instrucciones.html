@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instrucciones de Root: A Woodland Game - Guía completa de reglas y mecánicas">
+    <title>Root: Instrucciones - Cómo Jugar</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="assets/img/logo.jpg" alt="Logo Root" class="logo" loading="lazy">
+            </div>
+            <h1 class="header__title">Root: A Woodland Game</h1>
+            <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+            <label for="menu-toggle" class="hamburger" aria-label="Menú">
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+                <span class="hamburger__line"></span>
+            </label>
+            <nav class="nav" role="navigation">
+                <ul class="nav__list">
+                    <li><a href="index.html" class="nav__link">Inicio</a></li>
+                    <li><a href="instrucciones.html" class="nav__link">Instrucciones</a></li>
+                    <li><a href="historia.html" class="nav__link">Historia</a></li>
+                    <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+                    <li><a href="about.html" class="nav__link">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main" role="main">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero__bg" style="background-image: url('assets/img/captura1.jpg')"></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h2 class="hero__title">Cómo Jugar Root</h2>
+                <p class="hero__subtitle">Domina las Reglas de la Estrategia Asimétrica</p>
+            </div>
+        </section>
+
+        <!-- PASOS -->
+        <section class="instructions-section">
+            <div class="container">
+                <h2 class="section-title">6 Pasos Esenciales</h2>
+                <p class="section-subtitle">Aprende a dominar el Woodland</p>
+                
+                <div class="steps-grid grid-2">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <img src="assets/img/captura1.jpg" alt="Preparación del juego" class="step-image" loading="lazy">
+                        <h3>Preparación del Juego</h3>
+                        <p>Coloca el mapa de 12 clearings. Cada jugador recibe warriors iniciales según facción. Baraja cartas y distribuye mano inicial. Designa edificios iniciales. El juego es caos hermoso desde el primer turno.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <img src="assets/img/captura2.jpg" alt="Fase Birdsong" class="step-image" loading="lazy">
+                        <h3>Fase Birdsong</h3>
+                        <p>Turno comienza: regenera recursos, recluta warriors, ejecuta reparaciones si aplica. Aquí estableces bases para expansión. Cada decisión prepara daylight. Timing es crítico.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <img src="assets/img/captura3.jpg" alt="Fase Daylight" class="step-image" loading="lazy">
+                        <h3>Fase Daylight</h3>
+                        <p>Máximo 4 acciones principales: mover troops, atacar, construir, craftear items. Cada acción transforma mapa. Estrategia culmina aquí. Rivales reaccionan en tiempo real.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <img src="assets/img/captura4.jpg" alt="Batalla" class="step-image" loading="lazy">
+                        <h3>Sistema de Batalla</h3>
+                        <p>Warriors en clearing común: ambos roll dados (máx 3). Hits se restan de Warriors enemigos. Ties favorecen attacker. Ambush cards pueden salvar situaciones desesperadas.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <img src="assets/img/captura5.jpg" alt="Fase Evening" class="step-image" loading="lazy">
+                        <h3>Fase Evening</h3>
+                        <p>Resuelve combat damage, aplica effects pendientes. Controla victory points. Verifica domination (3 clearings mismo suit). Prepara siguiente turno. El bosque respira.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">6</div>
+                        <img src="assets/img/captura6.jpg" alt="Victoria" class="step-image" loading="lazy">
+                        <h3>Alcanza Victoria</h3>
+                        <p>Primera facción alcanzar 30 VP o lograr domination gana. Cada camino es único: Marquise expande, Eyrie gobierna, Alliance propaga, Vagabond busca quests. ¡Tu narrativa define victoria!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FACCIONES -->
+        <section class="factions-section">
+            <div class="container">
+                <h2 class="section-title">Las 4 Facciones</h2>
+                <p class="section-subtitle">Cada una juega con reglas completamente distintas</p>
+                
+                <div class="factions-grid grid-2">
+                    <div class="faction-card" data-faction="marquise">
+                        <img src="assets/img/card1.jpg" alt="Marquise de Cat" class="faction-image" loading="lazy">
+                        <div class="faction-overlay"></div>
+                        <div class="faction-content">
+                            <h3 class="faction-title">Marquise de Cat 👑</h3>
+                            <p class="faction-desc">Expande por industrialización. Construye aserraderos, recluta masivamente, controla territorios. Juego de área control puro. Fuerza aplastante si no la contienen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faction-card" data-faction="eyrie">
+                        <img src="assets/img/card2.jpg" alt="Eyrie Dynasties" class="faction-image" loading="lazy">
+                        <div class="faction-overlay"></div>
+                        <div class="faction-content">
+                            <h3 class="faction-title">Eyrie Dynasties 🦅</h3>
+                            <p class="faction-desc">Gobierna por decreto: programa acciones programáticamente. Rígido pero poderoso. Rotura de decreto causa purga catastrófica. Frágil si intrigas internas se descontrolan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faction-card" data-faction="alliance">
+                        <img src="assets/img/card3.jpg" alt="Woodland Alliance" class="faction-image" loading="lazy">
+                        <div class="faction-overlay"></div>
+                        <div class="faction-content">
+                            <h3 class="faction-title">Woodland Alliance 🐭</h3>
+                            <p class="faction-desc">Propaga sympathy, levanta revueltas. Juego de influencia emergente. Débil al inicio, potencia exponencial si crece sin control. Revolucionarios del Woodland.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faction-card" data-faction="vagabond">
+                        <img src="assets/img/card4.jpg" alt="El Vagabond" class="faction-image" loading="lazy">
+                        <div class="faction-overlay"></div>
+                        <div class="faction-content">
+                            <h3 class="faction-title">El Vagabond 🎒</h3>
+                            <p class="faction-desc">Mercader solitario buscando quests. Juega solo pero win condición requiere coalición. Oportunista, adaptable, impredecible. El caos hecho personaje.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TIPS -->
+        <section class="tips-section">
+            <div class="container">
+                <h2 class="section-title">Consejos Estratégicos</h2>
+                
+                <div class="tips-grid grid-3">
+                    <div class="tip-box">
+                        <span class="tip-icon">⚡</span>
+                        <h4>Timing</h4>
+                        <p>Cada acción tiene momento exacto. Atacar temprano vs. acumular fuerza. Craftear items en instante correcto puede cambiar partida.</p>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <span class="tip-icon">🗺️</span>
+                        <h4>Control Territorial</h4>
+                        <p>No conquista por conquista. Control clearing correcto te permite acceso mecánicas. Uno clearing bien posicionado > diez random.</p>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <span class="tip-icon">🎴</span>
+                        <h4>Crafteo de Items</h4>
+                        <p>Items son game-changers. Colecciona suits correctos. Craft en momento crucial. Vagabond depende casi 100% de items.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__left">
+                <p class="footer__text">© 2025 Root: A Woodland Game of Might and Right. Estrategia pura, narrativa emergente.</p>
+            </div>
+            <div class="footer__right">
+                <nav class="social" role="navigation" aria-label="Redes sociales">
+                    <a href="https://x.com" class="social__link" title="Twitter" aria-label="Twitter">
+                        <span class="material-icons">share</span>
+                    </a>
+                    <a href="https://instagram.com" class="social__link" title="Instagram" aria-label="Instagram">
+                        <span class="material-icons">photo_camera</span>
+                    </a>
+                    <a href="https://facebook.com" class="social__link" title="Facebook" aria-label="Facebook">
+                        <span class="material-icons">people</span>
+                    </a>
+                    <a href="https://tiktok.com" class="social__link" title="TikTok" aria-label="TikTok">
+                        <span class="material-icons">music_video</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* ESTILOS PÁGINA INSTRUCCIONES */
+        .instructions-section {
+            padding: 3rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .steps-grid {
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1a472a, #2d5a3d);
+            color: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .step-card h3 {
+            color: #1a472a;
+            padding: 1.5rem 1.5rem 0.5rem;
+            margin: 0;
+        }
+
+        .step-card p {
+            padding: 0 1.5rem 1.5rem;
+            color: #2c3e50;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* FACCIONES */
+        .factions-section {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .factions-grid {
+            margin-top: 2rem;
+        }
+
+        .faction-card {
+            position: relative;
+            height: 350px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .faction-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .faction-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease;
+        }
+
+        .faction-card:hover .faction-image {
+            filter: brightness(0.5);
+        }
+
+        .faction-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .faction-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            z-index: 2;
+            color: white;
+        }
+
+        .faction-title {
+            margin: 0 0 1rem 0;
+            color: #D4AF37;
+            font-size: 1.3rem;
+        }
+
+        .faction-desc {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* TIPS */
+        .tips-section {
+            padding: 3rem 0;
+            background: #f5f8f7;
+        }
+
+        .tips-grid {
+            margin-top: 2rem;
+        }
+
+        .tip-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #1a472a;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tip-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-left-color: #D4AF37;
+        }
+
+        .tip-icon {
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tip-box h4 {
+            color: #1a472a;
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .tip-box p {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .steps-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .factions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
